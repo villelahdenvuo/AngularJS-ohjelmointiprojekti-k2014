@@ -9,6 +9,7 @@
 ## Aikataulu
 
 ## Materiaali
+  * [Hyödyllisiä linkkejä](material/links.md)
 
 ## Ilmoittautuminen
 
