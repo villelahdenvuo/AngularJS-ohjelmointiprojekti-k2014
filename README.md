@@ -1,4 +1,19 @@
-AngularJS-ohjelmointiprojekti-k2014
-===================================
+| [Ajankohtaista](#ajankohtaista) | [Aikataulu](#aikataulu) | [Materiaali](#materiaali) | [Ilmoittautuminen](#ilmoittautuminen) | [Käytännöt](#k%C3%A4yt%C3%A4nn%C3%B6t) | [Ohjaus](#ohjaus) | [Ideoita](#projekti-ideoita) |
+| ------------------------------- | ----------------------- | ------------------------- | ------------------------------------- | -------------------------------------- | ----------------- | ---------------------------- |
 
-Superheroic JavaScript MVW Framework
+![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti**
+
+## Ajankohtaista
+  * *7.4.* &ndash; Kurssisivu luotu
+
+## Aikataulu
+
+## Materiaali
+
+## Ilmoittautuminen
+
+## Käytännöt
+
+## Ohjaus
+
+## Projekti-ideoita
