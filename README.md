@@ -50,4 +50,4 @@
  * Kysyttävää? Laita meiliä jollekin avainhenkilöistä. Osoitteet on tietenkin etunimi.sukunimi@helsinki.fi
 
 ## Projekti-ideoita
- * ...
+ * TBA
