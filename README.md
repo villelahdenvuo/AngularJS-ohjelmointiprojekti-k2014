@@ -1,7 +1,7 @@
 | [Ajankohtaista](#ajankohtaista) | [Aikataulu](#aikataulu) | [Materiaali](#materiaali) | [Ilmoittautuminen](#ilmoittautuminen) | [Käytännöt](#k%C3%A4yt%C3%A4nn%C3%B6t) | [Ohjaus](#ohjaus) | [Ideoita](#projekti-ideoita) |
 | ------------------------------- | ----------------------- | ------------------------- | ------------------------------------- | -------------------------------------- | ----------------- | ---------------------------- |
 
-![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti**
+![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 5.5.-12.5.
 
 ## Ajankohtaista
   * *8.4.* &ndash; Kurssisivua päivitelty
@@ -10,7 +10,7 @@
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | vkl        | maanantai  |
 | ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- | ---------- |
-| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo xx:xx  |
+| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo 10:15  |
 | [ohjaus] 12–16   |                |                |                |                |            | [deadline] |
 | [aihekuvaus]     | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         |            | [demo]     |
 
@@ -32,7 +32,7 @@
     * Git – projektit tulee Githubiin, se helpottaa tarkistusta ja näyttää hyvältä CV:ssä.
 
 ## Käytännöt
- * Kaikille **pakollinen** demotilaisuus xxxxxxx xx.xx. klo xx luokassa B221, **joka on siis kurssin deadline!**
+ * Kaikille **pakollinen** demotilaisuus maanantaina 12.5. klo 10:15 luokassa B221, **joka on siis kurssin deadline!**
  * tuntikirjanpito.md (~20h = 1 op)
    * **Ilman ei tule noppia**
    * Ryhmässä jokaisella oma kirjanpito
@@ -46,7 +46,7 @@
  * IRC 24h: [#tkt-angular](https://kiwiirc.com/client/ircnet.eversible.com/#tkt-angular)
    * Avainhenkilöt: Ville Lahdenvuo ([Tuhis](http://tuhoojabotti.com/)), Matti Luukkainen (mluukkai)
  * Ma-Pe 12 – 16 luokassa BK107
- * Ekalla kerralla on intro, joka kestää 0,5-1 tuntia.
+ * Ennen ekaa kertaa on intro 10:15, joka kestää max 2 tuntia.
  * Kysyttävää? Laita meiliä jollekin avainhenkilöistä. Osoitteet on tietenkin etunimi.sukunimi@helsinki.fi
 
 ## Projekti-ideoita
