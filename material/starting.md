@@ -1,5 +1,7 @@
 # Miten päästä alkuun
 
+![Yes yes yes!](http://a.memegen.com/j5lept.gif)
+
 ## Hostaus
 
 Tarvitset palvelimen, jolta sovelluksen voi palvella.
