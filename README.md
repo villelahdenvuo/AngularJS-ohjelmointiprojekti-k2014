@@ -1,10 +1,10 @@
 | [Ajankohtaista](#ajankohtaista) | [Aikataulu](#aikataulu) | [Materiaali](#materiaali) | [Ilmoittautuminen](#ilmoittautuminen) | [Käytännöt](#k%C3%A4yt%C3%A4nn%C3%B6t) | [Ohjaus](#ohjaus) | [Ideoita](#projekti-ideoita) |
 | ------------------------------- | ----------------------- | ------------------------- | ------------------------------------- | -------------------------------------- | ----------------- | ---------------------------- |
 
-![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 5.5.-12.5.
+![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 5.5.-12.5. (1-3 op)
 
 ## Ajankohtaista
-  * *8.4.* &ndash; Kurssisivua päivitelty
+  * *14.4.* &ndash; Kurssisivua päivitelty
   * *7.4.* &ndash; Kurssisivu luotu
 
 ## Aikataulu
@@ -26,7 +26,7 @@
   * [Angularin dokumentaatio](http://devdocs.io/angular/) kivasti selattavana
 
 ## Ilmoittautuminen
-  * Ilmo sulkeutuu xx.xx.
+  * Ilmo sulkeutuu 2.5.
   * **Esitiedot**
     * JavaScript – ei tarvitse osata välttämättä ennestään Angularia.
     * Git – projektit tulee Githubiin, se helpottaa tarkistusta ja näyttää hyvältä CV:ssä.
@@ -45,7 +45,7 @@
 ## Ohjaus
  * IRC 24h: [#tkt-angular](https://kiwiirc.com/client/ircnet.eversible.com/#tkt-angular)
    * Avainhenkilöt: Ville Lahdenvuo ([Tuhis](http://tuhoojabotti.com/)), Matti Luukkainen (mluukkai)
- * Ma-Pe 12 – 16 luokassa BK107
+ * Ma-Pe 12 – 16 luokassa B221
  * Ennen ekaa kertaa on intro 10:15, joka kestää max 2 tuntia.
  * Kysyttävää? Laita meiliä jollekin avainhenkilöistä. Osoitteet on tietenkin etunimi.sukunimi@helsinki.fi
 
