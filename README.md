@@ -9,7 +9,7 @@
 AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappien frontendejä. Googlaa lisää.
 
 ## Ajankohtaista
-  * [ilmottautuminen käynnissä](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=K&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit)
+  * [ilmoittautuminen käynnissä](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=K&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit)
   * *14.4.* &ndash; Kurssisivua päivitelty
   * *7.4.* &ndash; Kurssisivu luotu
 
