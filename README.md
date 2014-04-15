@@ -3,6 +3,11 @@
 
 ![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 5.5.-12.5. (1-3 op)
 
+
+## Johdanto
+
+AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappien frontendejä. Googlaa lisää.
+
 ## Ajankohtaista
   * *14.4.* &ndash; Kurssisivua päivitelty
   * *7.4.* &ndash; Kurssisivu luotu
