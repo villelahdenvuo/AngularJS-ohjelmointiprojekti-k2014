@@ -15,13 +15,15 @@ Tarvitset palvelimen, jolta sovelluksen voi palvella.
   * [Kapsi](http://www.kapsi.fi/)
     * Maksullinen, mutta kätevä
 
-Todennäköisesti helpoin tapa päästä nopeasti liikkeelle on Firebase ja Github Pages/Muu staattinen HTML palvelin.
+Todennäköisesti helpoin tapa päästä nopeasti liikkeelle on Firebase ja Github Pages/Muu staattinen HTML-palvelin.
 
 ## Workflow
 
   * http://yeoman.io/
+  * katso [tämä](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
 ## Ohjeita
 
   * aloita käymällä läpi Angularin [tutoriaali](http://docs.angularjs.org/tutorial)
+  * lisää ohjeita [täällä](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/blob/master/material/links.md)
 
