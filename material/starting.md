@@ -17,3 +17,11 @@ Tarvitset palvelimen, jolta sovelluksen voi palvella.
 
 Todennäköisesti helpoin tapa päästä nopeasti liikkeelle on Firebase ja Github Pages/Muu staattinen HTML palvelin.
 
+## Workflow
+
+  * http://yeoman.io/
+
+## Ohjeita
+
+  * aloita käymällä läpi Angularin [tutoriaali](http://docs.angularjs.org/tutorial)
+
