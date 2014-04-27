@@ -30,6 +30,7 @@ AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappi
   * [Alkuun pääseminen](material/starting.md)
   * [Hyödyllisiä linkkejä](material/links.md)
   * [Angularin dokumentaatio](http://devdocs.io/angular/) kivasti selattavana
+  * [Angular moduuleja](http://ngmodules.org/) (uudelleenkäytettäviä komponentteja)
 
 ## Ilmoittautuminen
   * Ilmo sulkeutuu 2.5.
