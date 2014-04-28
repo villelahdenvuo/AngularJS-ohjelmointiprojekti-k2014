@@ -4,16 +4,16 @@ Valitettavasti suomeksi materiaalia Angularista löytyy hyvin niukasti, mutta ti
 
 ## First steps
 
-  * lue ensin [nämä](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/blob/master/material/links.md)
+  * Lue ensin [aloittaminen](../material/starting.md)
 
 ## Angularin omat
-  * [Videoita](https://www.youtube.com/user/angularjs)
-  * [Tutoriaali esimerkkeineen](http://docs.angularjs.org/tutorial)
-  * [Perusideat selitetty](http://docs.angularjs.org/guide)
+  * [Best Practices](http://www.youtube.com/watch?v=ZhfUv0spHCY) - Miško Hevery (pääjehu) puhuu joistain best practiceseistä
+  * [Videoita](https://www.youtube.com/user/angularjs) - Angularin YouTube-kanava
+  * [Tutoriaali esimerkkeineen](http://docs.angularjs.org/tutorial) - Hyvin kattava alkututoriaali
+  * [Perusideat selitetty](http://docs.angularjs.org/guide) - Angularin salat
 
 ## Muita
-  * [Kaikki resurssit](https://github.com/jmcunningham/AngularJS-Learning) (satoja linkkejä kaikista aiheista)
-  * [Firebase ja Angular](https://www.youtube.com/watch?v=e4yUTkva_FM) (Database As A Service!)
-  * [Egghead.io](https://egghead.io/technologies/angularjs) loistavia videoita
-  * [50 koodiesimerkkiä alkeista eteenpäin](https://github.com/curran/screencasts/tree/gh-pages/introToAngular) (video + materiaalia)
-  * [Hyvin selkeitä blogipostauksia Angularin sisäisestä toiminnasta](http://blog.ponyfoo.com/search/tagged/angularjs)
+  * [Kaikki resurssit](https://github.com/jmcunningham/AngularJS-Learning) - Satoja linkkejä kaikista aiheista
+  * [Firebase ja Angular](https://www.youtube.com/watch?v=e4yUTkva_FM) - Database (Backend) As A Service!
+  * [Egghead.io](https://egghead.io/technologies/angularjs) - Loistavia videoita
+  * [50 koodiesimerkkiä alkeista eteenpäin](https://github.com/curran/screencasts/tree/gh-pages/introToAngular) - Video + materiaalia
