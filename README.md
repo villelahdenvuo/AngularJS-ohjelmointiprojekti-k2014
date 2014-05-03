@@ -9,7 +9,7 @@
 AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappien frontendejä. Googlaa lisää.
 
 ## Ajankohtaista
-  * [ilmoittautuminen käynnissä](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=K&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit)
+  * *3.5.* &ndash; Ilmoittautuminen päättyi, :heavy_exclamation_mark: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:heavy_exclamation_mark:
   * *14.4.* &ndash; Kurssisivua päivitelty
   * *7.4.* &ndash; Kurssisivu luotu
 
@@ -33,7 +33,8 @@ AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappi
   * [Angular moduuleja](http://ngmodules.org/) (uudelleenkäytettäviä komponentteja)
 
 ## Ilmoittautuminen
-  * Ilmo sulkeutuu 2.5.
+  * Ilmo sulkeutui 2.5.
+  * :heavy_exclamation_mark: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:heavy_exclamation_mark:
   * **Esitiedot**
     * JavaScript – ei tarvitse osata välttämättä ennestään Angularia.
     * Git – projektit tulee Githubiin, se helpottaa tarkistusta ja näyttää hyvältä CV:ssä.
@@ -50,11 +51,11 @@ AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappi
    * REAMDE.md – Projektin kuvaus, linkki, ohjeet ynnämuuta
 
 ## Ohjaus
- * IRC 24h: [#tkt-angular](https://kiwiirc.com/client/ircnet.eversible.com/#tkt-angular)
+ * IRC 24h: IRCNet [#tkt-angular](https://kiwiirc.com/client/ircnet.eversible.com/#tkt-angular)
    * Avainhenkilöt: Ville Lahdenvuo ([Tuhis](http://tuhoojabotti.com/)), Matti Luukkainen (mluukkai)
  * Ma-Pe 12 – 16 luokassa B221
  * Ennen ekaa kertaa on intro 10:15, joka kestää max 2 tuntia.
  * Kysyttävää? Laita meiliä jollekin avainhenkilöistä. Osoitteet on tietenkin etunimi.sukunimi@helsinki.fi
 
 ## Projekti-ideoita
- * TBA
+ * Kyselkää irkissä, jos ei vielä ole.
