@@ -462,6 +462,10 @@ rajoittamaan entryjä: <code>entry in entries | filter:criteria | orderBy:'id':t
 
 Filtterejä on myös helpohko kirjoittaa itse.
 
+## routing
+
+Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim tekisimme yksittäiselle blogille oman sivun (joka mahdollistaa esim. blogin editoinnin), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate. Järkevä tapa hoitaa asia on Angularin reititysmekanismin käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
+
 ## omat direktiivit
 
 Angularin magia saadaan aikaan toisaalta kontorollerien ja näkymätemplaten jakaman scopen avulla, toisaalla taas _direktiiveillä_ joita kirjoittamalla määritellään miten näkymätemplatejen tulee toimia. Angularissa on runsaasti valmiita direktiivejä, mm. jo meille tutut _ng-repeat_, _ng-model_, _ng-click_, _ng-show_ jne...
@@ -508,14 +512,89 @@ Eristetän flash-viestin näyttäminen direktiiviksi. Luodaan oma html-elementti
    <flash></flash>
 ```
 
-
+Direktiivi määritellään seuraasti:
 
 ```javascript
+app.directive('flash', function() {
+  return {
+      restrict: 'AE',
+      templateUrl: 'views/flash.html'
+  };
+});
 ```
 
-## routing
+Kuten arvata saattaa, direktiiviin liittyvä html on määritelty tiedostossa _views/flash.html_. Tiedoston sisältö on sama kuin tekemämme, eli:
 
-Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim tekisimme yksittäiselle blogille oman sivun (joka mahdollistaa esim. blogin editoinnin), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate. Järkevä tapa hoitaa asia on Angularin reititysmekanismin käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
+```html
+<div ng-show="flash" class="alert alert-success">
+  {{flash}}
+  <span style="float:right" ng-click="flash=null" class="glyphicon glyphicon-remove-sign"></span>
+</div>
+```
+
+Direktiivin määrittelyssä oleva <code>restrict: 'AE'</code> tarkoittaa, että direktiiviämme voi käyttää joko suoraan html-elementin tapaan:
+
+
+```html
+   <flash></flash>
+```
+
+tai esim. esim div-elementin attribuuttina:
+
+```html
+   <div flash></div>
+```
+
+Määrittelemämme direktiivi toimii samassa scopessa kuin muu sivu, tämän takia muuttuja _flash_ on suoraan viitattavissa direktiivin sisällä.
+
+Direktiivi on kuitenkin hieman ikävä sillä se edellyttää 'flashattavan' tekstin olevan muuttujassa _flash_ ja käytetty tyylitiedosto on kovakoodattu.
+
+Generalisoidaan ratkaisua hieman. Tehdään ensin minkä tahansa scopessa olevan muuttujan flashaaminen mahdolliseksi.
+
+Flashattava muuttuja määritellään attribuutin _message_ avulla.
+
+```html
+  <flash message='flash'></flash> 
+```
+
+Flashattavaan tekstin sisältävään muuttujaan viitataan direktiivin sisällä nyt nimellä _message_, eli templatea on muutettava seuraavasti
+
+```html
+<div ng-show="message" class="alert alert-success">
+  {{message}}
+  <span style="float:right" ng-click="message=null" class="glyphicon glyphicon-remove-sign"></span>
+</div>
+```
+
+Myös direktiivin määritelevä koodi muuttuu:
+
+```javascript
+app.directive('flash', function() {
+  return {
+      restrict: 'AE',
+      scope: {
+        message:'='
+      },
+      templateUrl: 'views/flash.html'
+  };
+});
+```
+
+Muutoksena edelliseen on direktiivin nyt määritelty eksplisiittisesti oma scope. Direktiivi ei siis oletusarvoisesti näe mitään sen sijaintipaikan scopen muuttujia tai funktioita. Merkinnän <code>message:'='</code> avulla välitetään viite attribuutin message 'arvona' olevasta scopen muuttujasta direktiiville. Eli koska templatessa on
+
+```html
+  <flash message='flash'></flash> 
+```
+
+viittaa direktiivin sisällä muuttuja _message_ samaan olioon kuin muualla sovelluksen scopessa muuttuja _flash_, jota kontorolleri käyttää asettamaan flashattavan tekstin:
+
+```javascript
+    $scope.createBlog = function() {
+        // ...
+        $scope.flash = "A new blog entry '"+$scope.blog.subject+"'' created"
+```
+
+Css
 
 ## interceptorit
 
