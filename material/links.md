@@ -5,6 +5,7 @@ Valitettavasti suomeksi materiaalia Angularista löytyy hyvin niukasti, mutta ti
 ## First steps
 
   * Lue ensin [aloittaminen](../material/starting.md)
+  * [Googlen tyyliohje](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) yleisesti hyvään koodiin
 
 ## Angularin omat
   * [Best Practices](http://www.youtube.com/watch?v=ZhfUv0spHCY) - Miško Hevery (pääjehu) puhuu joistain best practiceseistä
