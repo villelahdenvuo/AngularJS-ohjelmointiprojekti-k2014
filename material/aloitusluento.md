@@ -1,24 +1,30 @@
 # Aloitustilaisuden esimerkkisovellus
 
-Seuraavassa nopeasti kirjoitettu, oikolukematon tarina aloitusluennolla demonstroidun sovelluksen rakentumisesta.
+Seuraavassa kiireessä kirjoitettu, oikolukematon tarina aloitusluennolla demonstroidun sovelluksen rakentumisesta. Pahoittelen tekstin huonoutta. Pull requesteilla voi korjailla typoja ja parantaa kieliasua!
+
+Mukana on myös edityneimpiä asioita (kuten direktiivit ja interceptorit) joihin aluitusluennolla ei päästä.
 
 * Sovelluksen Angular-frontendin koodi [täällä](https://github.com/mluukkai/ng-project-frontend) 
 * ja Rails-backendin koodi [täällä](https://github.com/mluukkai/ng-project-backend)
 * Itse sovellus [http://ng-project-fe.herokuapp.com](http://ng-project-fe.herokuapp.com)
 
-Saattaa olla kannattavaa käydä läpi virallinen [Angular tutoriaali](https://docs.angularjs.org/tutorial), ainakin luvut 1-7.
+Saattaa olla kannattavaa käydä ennen allaolevaa läpi virallinen [Angular tutoriaali](https://docs.angularjs.org/tutorial), ainakin luvut 1-7.
+
+Järkevin tapa lukea tätä ohjetta lienee rakentaa sovellus pala palalta samalla itse. Ohje olettaa riittävän javascript-tuntemuksen eikä ole kovin perinpohjainen Angularinkaan suhteen.
 
 ## sovellus alkuun
 
-Ks. ensin [https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
+Järkevin tapa Anglar-projektien tekoon tällä hetkellä lienee projektin hallinta [Yeomanilla](http://yeoman.io/).
 
-Tehdään sovellukselle hakemisto
+Katso ensin aiheeseen liittyvä [video](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
-Mennään hakemistoon ja luodaan sovellusrunko komennolla <code>yo angular</code>
+Tehdään ensin sovellukselle hakemisto, mennään hakemistoon ja luodaan sovellusrunko komennolla <code>yo angular</code>
 
 Käynnistetään komennolla <code>grunt server</code>, ja mennään sovelluksen sivulle [http://127.0.0.1:9000](http://127.0.0.1:9000)
 
-Syntyy aluksi sekavahkolta vaikuttava projektirunko:
+Ruvetaan sitten tutustumaan sovelluksen rakenteeseen-
+
+Komennon <code>yo angular</code> suorittamisen myötä syntyy projektirunko:
 
 <pre>
 bower.json        - riipuvuuksien määrittely  
@@ -35,12 +41,11 @@ app
 test              - testit
 </pre>
 
-index.html on sekavahkolta vaikuttava tiedosto, jonka tarkoitus on määritellä sovelluksen "layout" ja ladata sivujen tarvitsemat js-kirjastot ja css:t.
+_index.html_ on sekavahkolta vaikuttava tiedosto, jonka tarkoituksena on määritellä sovelluksen "layout" ja ladata sovelluksen tarvitsemat js-kirjastot ja css:t.
 
-index.html:n **ei** yleensä ole tarkotus tehdä muuta sovelluksen sisältöä koskevaa kuin kaikille sivuille yhteiset asiat, esim. navigaatiopalkki.
+Ellei kyseessä ole hyvin yksinkertainen sovellus, tiedostoon index.html **ei** yleensä ole tarkotus laittaa muuta sovelluksen sisältöä koskevaa kuin kaikille sivuille yhteiset asiat, esim. navigaatiopalkki. 
 
-
-Tiedosto sisätää 2 tärkeää asiaa:
+Tiedosto sisätää 2 merkilepantavaa asiaa:
 ```html
 <body ng-app="frontendApp">
 
@@ -52,11 +57,12 @@ Tiedosto sisätää 2 tärkeää asiaa:
 </body>
 ```
 
-body-tagin attribuutti <code>ng-app="frontendApp"</code> määrittelee että kyseessä on Angular-sovellus, jonka toiminnan määrittelee moduuli "frontendApp".
+body-tagin attribuutti <code>ng-app="frontendApp"</code> määrittelee, että kyseessä on AngularJS-sovellus, jonka toiminnan määrittelee moduuli _frontendApp_.
 
-div-tagiin lisätyt attribuutit määrittelevät että ko. kohtaan renderöidään näkymätemplate main.html ja siihen liittyy *kontrolleri* nimeltä <code>MainCtrl</code>.
+div-tagiin lisätyt attribuutit määrittelevät että ko. kohtaan renderöidään näkymätemplate _main.html_ ja siihen liittyy *kontrolleri* nimeltään <code>MainCtrl</code>.
 
-Mainissa on kaikenlaista sisältöä. Tehdään siten, että kopioidaan mainissa oleva navigaatiopalkki index.html:n ja luovutaan mainin "includaamisesta", index tulee muotoon:
+Hakemistossa _app/views_ sijaitsevassa näkmätemplatessa
+*main.html* on kaikenlaista sisältöä. Tehdään siten, että kopioidaan mainissa oleva navigaatiopalkki tiedostoon index.html ja luovutaan mainin "includaamisesta", index.html tulee näin muotoon:
 
 ```html
   <body ng-app="frontendApp">
@@ -80,9 +86,11 @@ Mainissa on kaikenlaista sisältöä. Tehdään siten, että kopioidaan mainissa
     </div>
 ```
 
-Angularissa näkymätemplateihin (eli html-tiedostoihin, kuten index.html:) voidaan kirjoittaa <code>{{}}</code>-merkkien sisään Angular-koodia, jonka evaluoidaan ja renderöidään html:n sekaan. 
+Teemme siis sovelluksemme hieman hyvien tapojen vastaisesti tiedostoon _index.html_.
 
-Kokeillaan. Muutetaan index.html:ää:
+Angularissa näkymätemplateihin (eli html-tiedostoihin, kuten index.html) voidaan kirjoittaa <code>{{}}</code>-merkkien sisään Angular-koodia. Ennenkuin sivu näytetään, koodi evaluoidaan ja renderöidään html:n sekaan. 
+
+Kokeillaan. Muutetaan index.html:ää seuraavasti:
 
 ```html
 	<h2>List here some stuff</h2>
@@ -94,7 +102,7 @@ Kokeillaan. Muutetaan index.html:ää:
       {{awesomeThings}}
 ```
 
-<code>awesomeThings</code> on taulukko, jonka kontrolleri <code>MainCtrl</code> on liittänyt sivuntemplaten *scopeen*
+<code>awesomeThings</code> on taulukko, jonka kontrolleri <code>MainCtrl</code> on liittänyt sivuntemplaten *scopeen*.
 
 Kontrollerin koodi on seuraava:
 
@@ -109,7 +117,7 @@ angular.module('frontendApp')
   });
 ```
 
-Kontrolleri liitetään tiedostossa app.js-määriteltyyn moduuliin. app.js on yksinkertainen:
+Kontrolleri liitetään tiedostossa *app.js*-määriteltyyn moduuliin. app.js on yksinkertainen:
 
 ```javascript
 angular.module('frontendApp', []);
@@ -135,9 +143,11 @@ eli ensin talletetaan muuttujaan <code>app</code>
 viittaus sovelluksen määrittelemään moduuliin. Sen jälkeen moduuliin _liitetään_ kontrolleri nimeltään 'MainCtrl'. 
 
 Kontrolleri määritellään anonyymin funktion avulla.
-Funktion parametrina on <code>$scope</code>. Parametrin arvona tulee olemaan kontrollerin hallinnoiman sivun osan "scope", eli Angular-magiaan kuuluva mystinen liima joka liittää näkymätemplatet (eli html-tiedostot) ja kontrollerit. 
+Funktion parametrina on <code>$scope</code>. Parametrin arvona tulee olemaan kontrollerin hallinnoiman sivun osan "scope", eli Angular-magiaan kuuluva mystinen liima, joka "liittää" näkymätemplatet (eli html-tiedostot) ja kontrollerit toisiinsa. 
 
-Angular *injektoi* scopen automaattisesti kontrollerille, eli kun metodia kutsutaan, parametrilla on maagisesti oikea arvo. Jos parametri olisi nimetty eri tavalla, ei se saisi oikeaa arvoa. Angular siis antaa parametrille arvoksi nimenomaan scopen sen nimen <code>$scope</code> perusteella.
+[Scope](https://docs.angularjs.org/guide/scope) on aika syvllinen asia. Sovelluksella on yleensä useita scopeja, scopet voivat olla järjestäytyneet hierarkkisesti, eli scopella voi olla lapsiscopeja ym... Jätämme scopejen tarkemman käsittelyn harjoitustehtäväksi.
+
+Angular *injektoi* scopen automaattisesti kontrollerille, eli kun metodia kutsutaan, parametrilla on maagisesti oikea arvo. Parametrin nimi on merkityksellinen, jos parametri olisi nimetty eri tavalla, ei sille injektoituisi oikeaa arvoa (eli kontrollerin hallinnoiman sovelluksen osan scopea). Angular siis antaa parametrille arvoksi nimenomaan scopen sen nimen <code>$scope</code> perusteella.
 
 Palataan näkymätemplateen. Muutetaan sen sisältöä seuraavasti:
 
@@ -151,24 +161,26 @@ Palataan näkymätemplateen. Muutetaan sen sisältöä seuraavasti:
       </ul>
 ```
 
-Käytössä on ehkä Angularin eniten käytetty *direktiivi* <code>ng-repeat</code>. Kuten arvata saattaa, direktiivi saa aikaan sen, että li-elementti monistuu siten että jokaiselle läpikäytävän kokoelman alkiolle muodostuu elementistä oma kopio.
+Käytössä on ehkä Angularin eniten käytetty *direktiivi* <code>ng-repeat</code>. Kuten arvata saattaa, direktiivi saa aikaan sen, että li-elementti monistuu siten, että jokaiselle läpikäytävän kokoelman alkiolle muodostuu elementistä oma kopio.
 
-Sensijaan että näyttäisimme sivulla listan kontrollerissa taulukkoon kovakoodattuja merkkijonoja, haluamme näyttää sovelluksessa internetistä, esim. sovelluksemme backendistä ladattavia asioita.
+## Kommunikointi backendin kanssa
 
-Törmäämme tässä kohdassa selainten rajoitteisiin: selain ei voi ladata vapaasti resursseja muista domainista kuin siitä miltä html-sivu on ladattu, ks. [http://en.wikipedia.org/wiki/Same_origin_policy](http://en.wikipedia.org/wiki/Same_origin_policy). Usein kuitenkin tilanne on se, että haluamme käyttää jotain ulkopuoleisia rajapintoja tai oma backendimme ei sijaitse samassa domainissa kuin mistä frontend-koodi haetaan.
+Sen sijaan että näyttäisimme sivulla listan kontrollerissa taulukkoon kovakoodattuja merkkijonoja, haluamme näyttää sovelluksessa internetistä, esim. sovelluksemme backendistä ladattavia asioita.
+
+Törmäämme tässä kohdassa selainten rajoitteisiin: selain ei voi ladata vapaasti resursseja muista domainista kuin siitä, miltä html-sivu on ladattu, ks. [http://en.wikipedia.org/wiki/Same_origin_policy](http://en.wikipedia.org/wiki/Same_origin_policy). Usein kuitenkin tilanne on se, että haluamme käyttää jotain ulkopuoleisia rajapintoja tai oma backendimme joka ei sijaitse samassa domainissa kuin mistä frontend-koodi haetaan.
 
 Ratkaisuja ongelmaan on muutamia, käytämme näistä järkevintä eli
 * [CORSia (Cross-Origin resource sharing)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing)
 
 Käytännössä CORS toteutetaan HTTP-headereiden avulla.
 
-CORS edellyttää aina sitä että sovelluksen käyttämä backend tai palvelu on konfiguroitu sopivalla tavalla. Aina ei näin ole ja joudutaan käyttämään muita ratkaisuja esim JSONP:tä. 
+CORS edellyttää aina sitä, että sovelluksen käyttämä backend tai palvelu on konfiguroitu sopivalla tavalla. Aina ei näin ole ja joudutaan käyttämään muita ratkaisuja esim. [JSONP:tä](http://en.wikipedia.org/wiki/JSONP). 
 
-Käytössämme oleva Rails-backend on konfiguroitu sallimaan CORS. Konfiguraatio on hyvin helppoa gemin [rack-cors](https://github.com/cyu/rack-cors) avulla.
+Käytössämme oleva [Rails-backend](https://github.com/mluukkai/ng-project-backend) on konfiguroitu sallimaan CORS. Konfiguraatio on hyvin helppoa gemin [rack-cors](https://github.com/cyu/rack-cors) avulla.
 
 Myös frontendin puolella tarvitaan pieni temppu.
 
-Muutetaan sovelus-moduulin määrittelevä *main.js* seuraavaan muotoon:
+Muutetaan sovelus-moduulin määrittelevä *app.js* seuraavaan muotoon:
 
 ```javascript
 var app = angular.module('frontendApp', []);
@@ -179,9 +191,9 @@ app.config(function($httpProvider) {
 });
 ```
 
-Koodirivit muuttavat hieman sitä miten Angularin tarjoama <code>$http</code> service toimii oletusarvoisesti.
+Koodirivit muuttavat hieman sitä, miten Angularin tarjoama <code>$http</code> palvelu toimii oletusarvoisesti.
 
-Muutetaan nyt sovelluksen kontrolleria seuraavasti:
+Muutetaan nyt sovelluksen kontrolleria (tiedostossa main.js) seuraavasti:
 
 ```javascript
 var app = angular.module('frontendApp')
@@ -200,9 +212,9 @@ app.controller('MainCtrl', function ($scope, $http) {
 });
 ```
 
-Kontrollerille *injektoidaan* nyt scopen lisäksi myös <code>$http</code>, joka on Angularin valmiiksi tarjoama HTTP:n käytön abstraktoima palvelu, ks [https://docs.angularjs.org/api/ng/service/$http](https://docs.angularjs.org/api/ng/service/$http). 
+Kontrollerille *injektoidaan* nyt scopen lisäksi myös <code>$http</code>, joka on Angularin valmiiksi tarjoama HTTP:n käytön abstrahoiva palvelu, ks [https://docs.angularjs.org/api/ng/service/$http](https://docs.angularjs.org/api/ng/service/$http). 
 
-Palvelun käyttö on helppoa. Kutsumme sen metodia get ja määrittelemme callback-fuktion
+Palvelun käyttö on helppoa. Kutsumme sen metodia *get* parametrina kohdeosoite, ja määrittelemme callback-fuktion,
 jota kutsutaan operaation onnistuessa. 
 
 Olisimme voineet määritellä callbackin myös epäonnistuneeseen tapaukseen:
@@ -231,9 +243,11 @@ Callback siis liittää palvelimen lähettämän datan scopeen asetettuun muuttu
 	</div>
 ```
 
-Palvelin palauttaa siis taulukom json-muotoisia olioita joilla on mm. kentät subject, user ja body.
+Palvelin palauttaa siis taulukon json-muotoisia olioita, joilla on mm. kentät subject, user ja body.
 
-Tehdään sovellukseemme mahdollisuus blogien kirjoittamiseen. Luodaan ensin näkymään sopiva formi:
+## lomakkeet
+
+Tehdään sovellukseemme mahdollisuus blogien kirjoittamiseen. Luodaan ensin näkymään formi:
 
 ```html
       <h2>Create a new entry</h2>
@@ -252,9 +266,9 @@ Tehdään sovellukseemme mahdollisuus blogien kirjoittamiseen. Luodaan ensin nä
       {{blog}}
 ```
 
-Lomake ei vielä tee mitään ja on ulkoasultaan ruma. Tarkastellaan kuitenkin paria asiaa. Jokaiseen kenttään on liitetty attribuuttidirektiivin *ng-model* avulla arvo, joka vastaa scopessa olevaa muuttujaa (tai sen kenttää) johon kentän arvo tallettuu.
+Lomake ei vielä tee mitään ja on ulkoasultaan ruma. Tarkastellaan kuitenkin paria asiaa. Jokaiseen kenttään on liitetty attribuuttidirektiivin *ng-model* avulla arvo, joka vastaa scopessa olevaa muuttujaa (tai sen kenttää) johon kentän arvo tallettuu. 
 
-Lomakkeen alle on lisätty rivi <code>{{blog}}</code> joka näyttää olion *blog* jonka kenttiin syötteen arvot sidotaan. Jos kokeilet kirjottaa jotain syötekenttiin, pääset todistamaan Angularin two way binding -magiaa.
+Lomakkeen alle on lisätty rivi <code>{{blog}}</code>, joka näyttää olion *blog* jonka kenttiin syötteen arvot sidotaan. Jos kokeilet kirjottaa jotain syötekenttiin, pääset todistamaan Angularin two way binding -magiaa.
 
 Nappiin on kiinnitetty *ng-submit*-direktiivin avulla *tapahtumankuuntelija* nimeltään <code>createBlog</code>. Kuuntelijametodia ei ole vielä olemassa, se täytyy määritellä kontrollerissa ja liittää scopeen. Tehdään näin:
 
@@ -274,7 +288,7 @@ app.controller('MainCtrl', function ($scope, $http) {
 
 Nyt käsittelijä ainoastaan tyhjentää syötekentät ja kirjoittaa konsoliin viesti.
 
-Muutetaan callbackiä siten, että se luo blogin palvelimelle HTTP POST -kutsulla:
+Muutetaan callbackiä siten, että se luo blogi-entryn palvelimelle HTTP POST -kutsulla:
 
 ```javascript
     $scope.createBlog = function() {
@@ -285,11 +299,11 @@ Muutetaan callbackiä siten, että se luo blogin palvelimelle HTTP POST -kutsull
     }
 ```
 
-Kutsu siis tehdään <code>$http</code>-palvelun avulla antamalla lähetettävä dataolio parametriksi. Onnistuneen tapauksen takaisinkutsussa laitetaan luotu blogikirjoitus blogien listalle jotta myös sivun käyttäjä näkee uuden blogin.
+Kutsu siis tehdään <code>$http</code>-palvelun avulla antamalla kohdeurlin lisäksi lähetettävä dataolio parametriksi. Onnistuneen tapauksen takaisinkutsussa laitetaan luotu blogikirjoitus blogien listalle, jotta myös sivun käyttäjä näkee uuden blogin.
 
-## omat servicet
+## omat palvelut
 
-Kontrollerin koodi on nyt sikäli ikävää että siihen on kovakoodattu backendin osoite. Kontrolleri myös käyttää suoraan $http-palvelua ja tämä hankaloittaa kontrollerin testaamista. 
+Kontrollerin koodi on nyt sikäli ikävää, että siihen on kovakoodattu backendin osoite. Kontrolleri myös käyttää suoraan $http-palvelua ja tämä hankaloittaa kontrollerin testaamista. 
 
 Määritellään oma palvelu, joka piilottaa kontrollerilta nämä alhaisen tason detaljit.
 
@@ -309,7 +323,7 @@ Ideana on määritellä palvelu <code>Blogs</code>, jota kontrolleri voi käytt�
     }
 ```
 
-Palvelut ovat käytännössä singleton-olioita joita on mahdollista *injektoida* esim. kontrollereihin.
+Palvelut ovat käytännössä singleton-olioita, joita on mahdollista *injektoida* esim. kontrollereihin.
 
 Palvelujen määrittelytapoja on muutamia, käytämme seuraavassa tehdasmetodia:
 
@@ -333,7 +347,10 @@ app.factory('Blogs', function($http){
 });
 ```
 
-Kontrollerille on nyt injektoitava määrittelemämme <code>Blogs</code>-palvelu. Kontrollerilla ei ole enää riippuvuutta $http-palveluun, joten sitä ei tarvitse enää injektoida:
+Palvelu siis rekisteröidään sovellusmoduulille käyttämällä metodia *factory*. Parametrikseen metodi saa pavelun nimen ('Blocks') lisäksi metodin joka täytyy palauttaa palvelun määrittelevä olio. Olio määritellään 'normaaliin' javascript-tyyliin. Koska palvelu käyttää *$http*-palvelua, on se injektoitava metodin *factory* parametrina olevan funktion parametrina.
+
+Jotta määritelty palvelu saadaan kontrollerissa käyttöön, on se injektoitava kontrollerille.
+ Kontrollerilla ei ole enää riippuvuutta $http-palveluun, joten se voidaan poistaa injektoitavien listalta:
 
 ```javascript
 app.controller('MainCtrl', function ($scope, Blogs) {
@@ -351,13 +368,14 @@ app.controller('MainCtrl', function ($scope, Blogs) {
 });
 ```
 
-Koska käyttämämme Rails-resurssi noudattaa RESTFull-konventioita, olisimme myös voineet käyttää
-$http-palvelun sijaan Angularin valmista
-[$resource](https://docs.angularjs.org/api/ngResource/service/$resource)-palvelua jolloin olisimme selvinneet hivenen helpommalla. Tosin tässä tapauksessa palvelusta ei ole kovin suurta hyötyä koska aksessoimme _blogs_-resurssia vain kahda metodi/url-kombinaatiota käyttäen.
+Koska käyttämämme Rails-resurssi noudattaa RESTFull-konventioita, olisimme myös voineet käyttää $http-palvelun sijaan Angularin valmista
+[$resource](https://docs.angularjs.org/api/ngResource/service/$resource)-palvelua, jolloin olisimme selvinneet hivenen helpommalla. Tosin sovelluksessamme $resource-palvelusta ei ole kovin suurta hyötyä sillä aksessoimme _blogs_-resurssia vain kahda metodi/url-kombinaatiota käyttäen.
+
+Kirjoitimme esimerkissä palvelun määrittelevän koodin samaan tiedostoon missä kontrollerin määritelmä sijaitsee. Jos sovellus alkaa kasvaa, kannattaa kontrollerit ja palvelut määritellä omissa tiedostoissaan.
 
 ## hienosäätöä
 
-Lomakkeemme on nyt koko ajan näkyvillä. Haluisimme sen aukeamaan vain tarvittaessa, esim. jotain painiketta klikkaamalla.
+Lomakkeemme on nyt koko ajan näkyvillä. Haluisimme sen näkyville vain tarvittaessa, esim. jotain painiketta klikkaamalla.
 
 Muutetaan näkymää seuraavasti
 
@@ -376,7 +394,7 @@ Muutetaan vielä kontrolleria lisäämällä sinne pari riviä:
 ```javascript
 app.controller('MainCtrl', function ($scope, Blogs) {
     // lomake ei aluksi näkyvissä
-	$scope.formVisible = false;
+	  $scope.formVisible = false;
 
     Blogs.all().success( function(data, status, headers, config) {
     	$scope.entries = data;
@@ -386,13 +404,42 @@ app.controller('MainCtrl', function ($scope, Blogs) {
     	Blogs.create($scope.blog).success(function(data, status, headers, config) {
     		$scope.entries.push(data);
     	});
-    	// piilota kun uusi blogi luotu
+    	// piilota kun uusi blogi-entry luotu
     	$scope.formVisible = false;
     	$scope.blog = {}
     }
 
 });
 ```
+
+Liitimme nyt lomakkeeseen direktiivin *ng-show*, jonka avulla voidaan määritellä milloin sen sisältävä elementti on näkyvissä. Alustimme lomakkeen näkyvyyttä kontrolloivan muuttujan <code>formVisible</code>arvoksi *false*. Otsikkoon "Create new entry" liitettiin klikkauksenkuuntelija direktiivillä *ng-click*:
+
+```html
+      <h2 ng-click="formVisible = !formVisible">Create a new entry</h2>
+```
+
+klikatessa tekstiä suoritetaan aina <code>formVisible = !formVisible</code> koodi joka kääntää näkyvyyttä säätelevän muuttujan arvon toisinpäin. 
+
+Olisimme voineet määritellä klikkauksen kuuntelijan myös metodina
+
+```html
+      <h2 ng-click="toggleVisibility()">Create a new entry</h2>
+```
+
+jos olisimme liittäneet metodin kontrollerissa scopeen:
+
+```javascript
+app.controller('MainCtrl', function ($scope, Blogs) {
+    $scope.formVisible = false;
+
+    $scope.toggleVisibility = function(){
+      $scope.formVisible = !$scope.formVisible;
+    }
+    // ...
+)}
+ ```
+
+Jätämme kuitenkin alkuperäisen klikkauksenkuuntelijan käyttöön. 
 
 Hyödynnetään [bootstrapia](http://getbootstrap.com/) ja tehdään lomakkeesta hieman siistimmän näköinen (valitettavasti HTML:stä tulee samalla aikamoista sotkua):
 
@@ -415,7 +462,7 @@ Hyödynnetään [bootstrapia](http://getbootstrap.com/) ja tehdään lomakkeesta
       </form>
 ```
 
-Huomaa, että nyt käytössä direktiivi <code>ng-hide</code> jonka avulla elementin voi piilottaa silloin kuin tietty ehto evaluoituu todeksi.
+Huomaa, että nyt käytössä *ng-shown* 'vastakohtadirektiivi' <code>ng-hide</code> ,jonka avulla elementin voi piilottaa silloin kuin tietty ehto evaluoituu todeksi.
 
 ## deployment
 
@@ -668,6 +715,8 @@ liittää _link_-funktio flashille oletusarvoisen
 'alert-success'.
 
 Direktiivit ovat erittäin syvällinen aihe ja olemme tässä vasta repäisseet pintaa...
+
+# jatkuu huomenna...
 
 ## autentikointi
 
