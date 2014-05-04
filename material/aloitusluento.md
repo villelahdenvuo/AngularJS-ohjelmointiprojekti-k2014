@@ -423,9 +423,50 @@ Seuraavaksi luodaan tavanomaiseen tapaan heroku-sovellus (komennolla <code>herok
 
 Sovelluksen pitäisi sitten toimia: [http://ng-project-fe.herokuapp.com](http://ng-project-fe.herokuapp.com)
 
-## lisää...
+## filtteröinti
+
+Parannellaan hieman blogien listaa. Angularissa on runsaasti valmiiksi määriteltyjä [filttereitä](https://docs.angularjs.org/api/ng/filter). Osa filttereistä on tarkoitettu taulukoiden käsittelyyn. Aloitetaan järjestämällä blogientryt siten, että uusimmat tulevat ylimmäksi. Tämä onnistuu helposti [orderBy:n](https://docs.angularjs.org/api/ng/filter/orderBy) avulla:
+
+```html
+      <div>
+        <div ng-repeat="entry in entries | orderBy:'id':true">
+          <h4>{{entry.subject}} by {{entry.user}} </h4>
+
+          <blockquote>
+            {{entry.body}}
+          </blockquote>    
+        </div>
+      </div>
+``` 
+
+Backend antaa entryille uniikin id:n. Id kasvaa inkrementaalisesti, joten järjestämme entryt sen perusteella käänteisesti <code>orderBy:'id':true</code>. Huom: olioiden id:n perusteella tapahtuva järjestäminen ei ole välttämättä järkevää, parempi olisi liittää jsoniin mukaan olioiden luontiaika.
+
+Tehdään vielä sovellukseen mahdollisuus rajoittaa näytettäviä blogientryjä tekstihaun perusteella. Käytetään filtteriä nimeltä [filter](https://docs.angularjs.org/api/ng/filter/filter):
+
+```html
+     <input placeholder="write somthing to filter entries" class="form-control" ng-model="criteria"></input>
+
+      <div>
+        <div ng-repeat="entry in entries | filter:criteria | orderBy:'id':true">
+          <h4>{{entry.subject}} by {{entry.user}} </h4>
+
+          <blockquote>
+            {{entry.body}}
+          </blockquote>    
+        </div>
+      </div>
+```
+
+Tekstikenttään kirjoitettu teksti tallettuu nyt scopen muuttujaan _criteria_. Filtteri käyttää tätä 
+rajoittamaan entryjä: <code>entry in entries | filter:criteria | orderBy:'id':true</code>. Filtteröinnin jälkeen entryille suoritetaan vielä järjestäminen. Eli kuten näemme, filtterejä voidaan helposti ketjuttaa.
+
+Filtterejä on myös helpohko kirjoittaa itse.
 
 ## direktiivit
+
+## routing
+
+Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim tekisimme yksittäiselle blogille oman sivun (joka mahdollistaa esim. blogin editoinnin), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate. Järkevä tapa hoitaa asia on Angularin reititysmekanismin käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
 
 ## interceptorit
 
