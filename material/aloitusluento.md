@@ -213,7 +213,7 @@ Olisimme voineet määritellä callbackin myös epäonnistuneeseen tapaukseen:
 
 Callback siis liittää palvelimen lähettämän datan scopeen asetettuun muuttujaan <code>entries</code>. Muutetaan näkymää siten, että se näyttää palvelimen palauttaman datan:
 
-```javascript
+```html
 	<h2>Blog entries</h2>
 
 	<div>
