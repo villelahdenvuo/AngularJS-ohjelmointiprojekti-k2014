@@ -669,6 +669,8 @@ liittää _link_-funktio flashille oletusarvoisen
 
 Direktiivit ovat erittäin syvällinen aihe ja olemme tässä vasta repäisseet pintaa...
 
+## autentikointi
+
 ## interceptorit
 
 ```javascript
