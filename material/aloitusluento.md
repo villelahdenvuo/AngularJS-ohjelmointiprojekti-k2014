@@ -2,7 +2,7 @@
 
 Seuraavassa nopeasti kirjoitettu, oikolukematon tarina aloitusluennolla demonstroidun sovelluksen rakentumisesta.
 
-Sovelluksen Angular-frontendin koodi [täällä]() ja Rails-backendin koodi [täällä]()
+Sovelluksen Angular-frontendin koodi [täällä](https://github.com/mluukkai/ng-project-rtontend) ja Rails-backendin koodi [täällä](https://github.com/mluukkai/ng-project-backend)
 
 ## sovellus alkuun
 
