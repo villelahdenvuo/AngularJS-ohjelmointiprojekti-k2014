@@ -517,7 +517,7 @@ Filtterejä on myös helpohko kirjoittaa itse.
 
 Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim. tekisimme yksittäiselle blogille oman sivun (joka mahdollistaisi blogin editoinnin jne), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate ja kontrolleri. Järkevä tapa hoitaa asia on Angularin *reititysmekanismin* käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
 
-## omat direktiivit 
+## direktiivit 
 
 Angularin magia saadaan aikaan toisaalta kontorollerien ja näkymätemplaten jakaman scopen avulla, toisaalla taas _direktiiveillä_,joita kirjoittamalla määritellään miten näkymätemplatejen tulee toimia. Angularissa on runsaasti valmiita direktiivejä, mm. jo meille tutut _ng-repeat_, _ng-model_, _ng-click_, _ng-show_ jne...
 
@@ -526,6 +526,8 @@ Angularin valmiilla direktiiveillä päästään jo jonnekin asti, mutta sovellu
 Monet valmiit direktiivit, esim. _ng-show_ manipuloivat DOM:ia. Direktiivit ovatkin se paikka missä Angular-sovellusten kaiken DOM-manipuloinnin tulee tapahtua. On todella paha Angular-antipatterni koskea millään muotoa DOMiin kontrollereissa.
 
 Direktiivit ovat erittäin syvällinen aihe, katsotaan kuitenkin kohta yhtä esimerkkiä. Toteutetaan kuitenkin ensin sovellukseen sen käyttöä sujuvoittava pieni ominaisuus.
+
+## flash
 
 Sovellus käyttäytyy nyt hieman ikävästi uuden blogipostauksen submittauksen jälkeen. Blogi ainoastaan lisätään ao. listalle ja formi katoaa. Lisätään sovelluksen uuden blogientryn luomisesta kertova "flash"-viesti. 
 
@@ -557,9 +559,11 @@ Nyt blogin luova callback-metodi voi asettaa flashille arvon:
 
 Flash-viestiin liittyvän rastin klikkaaminen saa viestin pois ruudulta rastin yhteyteen määritellyn muutujan *flash* nollaava klikkauksenkäsittelijän <code>ng-click="flash=null"</code> ansiosta. 
 
+## omat direktiivit 
+
 Ratkaisu toimii, mutta html-template alkaa näyttää koko ajan ikävämmältä.
 
-Eristetän flash-viestin näyttäminen direktiiviksi. Luodaan oma html-elementti, jota voi käyttää aluksi seuraavasti
+Eristetän flash-viestin näyttäminen _direktiiviksi_. Luodaan oma html-elementin tapaan toimiva direktiivi, jota voi käyttää aluksi seuraavasti
 
 ```html
    <flash></flash>
@@ -576,7 +580,7 @@ app.directive('flash', function() {
 });
 ```
 
-Kuten arvata saattaa, direktiiviin liittyvä html on määritelty tiedostossa _views/flash.html_. Tiedoston sisältö on sama kuin tekemämme, eli:
+Kuten arvata saattaa, direktiiviin liittyvä html on määritelty tiedostossa _views/flash.html_. Tiedoston sisältö on sama kuin aiemmin suoraan templateen index.html kirjoittamamme, eli:
 
 ```html
 <div ng-show="flash" class="alert alert-success">
@@ -600,7 +604,7 @@ tai esim. esim div-elementin attribuuttina:
 
 Määrittelemämme direktiivi toimii samassa scopessa kuin muu sivu, tämän takia muuttuja _flash_ on suoraan viitattavissa direktiivin sisällä.
 
-Direktiivi on kuitenkin hieman ikävä sillä se edellyttää 'flashattavan' tekstin olevan muuttujassa _flash_ ja käytetty tyylitiedosto on kovakoodattu.
+Direktiivi on kuitenkin hieman ikävä, sillä se edellyttää 'flashattavan' tekstin olevan muuttujassa _flash_ ja käytetty tyyli on kovakoodattu.
 
 Generalisoidaan ratkaisua hieman. Tehdään ensin minkä tahansa scopessa olevan muuttujan flashaaminen mahdolliseksi.
 
@@ -610,7 +614,7 @@ Flashattava muuttuja määritellään attribuutin _message_ avulla.
   <flash message='flash'></flash> 
 ```
 
-Flashattavaan tekstin sisältävään muuttujaan viitataan direktiivin sisällä nyt nimellä _message_, eli templatea on muutettava seuraavasti
+Flashattavaan tekstin sisältävään muuttujaan viitataan direktiivin sisällä nyt nimellä _message_, eli templatea on muutettava seuraavasti:
 
 ```html
 <div ng-show="message" class="alert alert-success">
@@ -633,19 +637,21 @@ app.directive('flash', function() {
 });
 ```
 
-Muutoksena edelliseen on direktiivin nyt määritelty eksplisiittisesti oma scope. Direktiivi ei siis oletusarvoisesti näe mitään sen sijaintipaikan scopen muuttujia tai funktioita. Merkinnän <code>message:'='</code> avulla välitetään viite attribuutin message 'arvona' olevasta scopen muuttujasta direktiiville. Eli koska templatessa on
+Muutoksena edelliseen on direktiivin nyt määritelty eksplisiittisesti *oma scope*. Direktiivi ei enää oletusarvoisesti näe mitään sen sijaintipaikan scopen muuttujia tai funktioita. Merkinnän <code>message:'='</code> avulla välitetään *viite* attribuutin message 'arvona' olevaan scopen muuttujaan direktiiville. Eli koska templatessa on
 
 ```html
   <flash message='flash'></flash> 
 ```
 
-viittaa direktiivin sisällä muuttuja _message_ samaan olioon kuin muualla sovelluksen scopessa muuttuja _flash_, jota kontorolleri käyttää asettamaan flashattavan tekstin:
+viittaa direktiivin sisällä muuttuja _message_ samaan olioon, kuin muualla sovelluksen scopessa muuttuja _flash_, jota kontorolleri käyttää asettamaan flashattavan tekstin:
 
 ```javascript
     $scope.createBlog = function() {
         // ...
         $scope.flash = "A new blog entry '"+$scope.blog.subject+"'' created"
 ```
+
+## domin manipulointi ja direktiivin link-funktio
 
 Tällä hetkellä flashviesti on kovakoodattu käyttämään
 bootstrapin tyyliä [alert-success](http://getbootstrap.com/components/#alerts). 
