@@ -698,12 +698,12 @@ app.directive('flash', function() {
 });
 ```
 
-Ensinnäkin lisäsimme määrittelyn <code>replace: true</code>. Tämä oltaisiin voitu tehdä jo aiemmin. Määrittelmä saa aikaan sen, että direktiivin template korvaa DOM:ssa kokonaan tägin  <code>flash</code>
+Ensinnäkin lisäsimme määrittelyn <code>replace: true</code>. Tämä oltaisiin voitu tehdä jo aiemmin. Määrittely saa aikaan sen, että direktiivin template korvaa DOM:ssa kokonaan tägin <code>flash</code>. Ilman määrittelyä direktiivin template sijoitetaan direktiivin määrittelemän tägin sisälle.
 
-Mielenkiintoisempi on nyt mukaan otettu funktio _link_. Linkitysfunktio suoritetaan siinä vaiheessa kun direktiivin template ja siihen liitetty scope renderöidään HTMLään. Linkitysfunktio saa kolme parametria, _scope_ on direktiivin scope, _elem_ on itse direktiivielementti, meidän tapauksessamme templaten määrittelemä div. Elementti on wrapatty _jquery_-olioksi.
-Kolmantena parametrina on direktiivin sisältämät attribuutit. 
+Mielenkiintoisempi on nyt mukaan otettu funktio _link_. Linkitysfunktio suoritetaan siinä vaiheessa, kun direktiivin template ja siihen liitetty scope renderöidään HTML-templaten sekaan. Linkitysfunktio saa kolme parametria: _scope_ on direktiivin scope, _elem_ on itse direktiivielementti, meidän tapauksessamme templaten määrittelemä div. Elementti on wrapatty _jquery_-olioksi.
+Kolmantena parametrina on direktiivin sisältämät attribuutit taulukkomuodossa. 
 
-Määrittelemämme linkitysmetodi ottaa _type_-attribuutin, muodostaa tästä elementille lisättävän luokan ja liittää sen elementtiin. Elementtiä käsitellään Angularin sisältämällä 'minijqueryllä' [jqLite:llä](https://docs.angularjs.org/api/ng/function/angular.element) 
+Määrittelemämme linkitysmetodi ottaa _type_-attribuutin, muodostaa tästä elementille lisättävän (käytännössä sen värin määrittelevän) luokan ja liittää sen elementtiin. Elementtiä käsitellään Angularin sisältämällä 'minijqueryllä' eli [jqLite:llä](https://docs.angularjs.org/api/ng/function/angular.element) 
 
 Eli jos direktiiviä käytetään seuraavasti
 
@@ -715,12 +715,11 @@ Eli jos direktiiviä käytetään seuraavasti
 lisää _link_-funktio flashille luokan 'alert-warning'. Jos tyyppiä ei määritellä:
 
 ```html
-      <flash message='dangerousThing'>
+      <flash message='flash'>
       </flash>
 ```
 
-liittää _link_-funktio flashille oletusarvoisen 
-'alert-success'.
+liittää _link_-funktio flashille oletusarvoisen luokan 'alert-success'.
 
 Direktiivit ovat erittäin syvällinen aihe ja olemme tässä vasta repäisseet pintaa...
 
