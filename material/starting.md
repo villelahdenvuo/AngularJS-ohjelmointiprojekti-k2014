@@ -24,6 +24,7 @@ Todennäköisesti helpoin tapa päästä nopeasti liikkeelle on Firebase ja Gith
 
 ## Ohjeita
 
-  * aloita käymällä läpi Angularin [tutoriaali](http://docs.angularjs.org/tutorial)
+  * aloitusluennon [esimerkkisovellus](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/blob/master/material/aloitusluento.md)
+  * jatka tai aloita käymällä läpi Angularin [tutoriaali](http://docs.angularjs.org/tutorial)
   * lisää ohjeita [täällä](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/blob/master/material/links.md)
 
