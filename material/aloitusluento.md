@@ -462,7 +462,15 @@ rajoittamaan entryjä: <code>entry in entries | filter:criteria | orderBy:'id':t
 
 Filtterejä on myös helpohko kirjoittaa itse.
 
-## direktiivit
+## omat direktiivit
+
+Angularin magia saadaan aikaan toisaalta kontorollerien ja näkymätemplaten jakaman scopen avulla, toisaalla taas _direktiiveillä_ joita kirjoittamalla määritellään miten näkymätemplatejen tulee toimia. Angularissa on runsaasti valmiita direktiivejä, mm. jo meille tutut _ng-repeat_, _ng-model_, _ng-click_, _ng-show_ jne...
+
+Angularin valmiilla direktiiveillä päästään jo jonnekin asti, mutta sovelluskehyksen todellinen voima tulee siitä että se mahdollistaa omien, lähes mielivaltaisella tavalla toimivien direktiivien määrittelemisen. Direktiivit sopivat moneen tarkoitukseen, niiden avulla on mm. mahdollista määritellä uusia HTML-elementtejä.
+
+Monet valmiit direktiivit, esim. _ng-show_ ovat manipuloineet DOM:ia. Direktiivit ovatkin se paikka missä Angular-sovellusten kaiken DOM-manipuloinnin tulee tapahtua. On todella paha Angular-antipatterni koskea millään muotoa DOMiin kontrollereissa.
+
+Direktiivit ovat erittäin syvällinen aihe, katsotaan kuitenkin kohta yhtä esimerkkiä.
 
 ## routing
 
