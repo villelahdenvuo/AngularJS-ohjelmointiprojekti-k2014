@@ -468,7 +468,7 @@ Huomaa, että nyt käytössä *ng-shown* 'vastakohtadirektiivi' <code>ng-hide</c
 
 Nyt on korkea aika deployata sovellus herokuun. Toimenpide on helppo, ensimmäisen vaiheen ohje löytyy [täältä](http://www.lars-schenk.com/deploying-a-yeoman-angular-app-to-heroku/1661).
 
-Toine vaihe on "kääntää" ohjelma komennolla <code>grunt build</code>. Tällöin ovelluksen käännetty ja js-koodin osalta minimoitu versio syntyy hakemistoon _dist_. Oletusarvoisesti _.gitigonre_ tiedosto ignoroi ko tiedoston, ignorointi tulee poistaa!
+Toinem vaihe on "kääntää" sovellus komennolla <code>grunt build</code>. Tällöin ovelluksen css:ien ja js-koodin osalta minimoitu versio syntyy hakemistoon _dist_. Oletusarvoisesti _.gitigonre_ tiedosto ignoroi ko. hakemiston, ignorointi tulee poistaa!
 
 Seuraavaksi luodaan tavanomaiseen tapaan heroku-sovellus (komennolla <code>heroku create</code>) ja pushataan commitoitu repositorio (jossa siis on oltava mukana myös _dist_-hakemisto) herokuun. 
 
@@ -490,7 +490,7 @@ Parannellaan hieman blogien listaa. Angularissa on runsaasti valmiiksi määrite
       </div>
 ``` 
 
-Backend antaa entryille uniikin id:n. Id kasvaa inkrementaalisesti, joten järjestämme entryt sen perusteella käänteisesti <code>orderBy:'id':true</code>. Huom: olioiden id:n perusteella tapahtuva järjestäminen ei ole välttämättä järkevää, parempi olisi liittää jsoniin mukaan olioiden luontiaika.
+Backend antaa jokaiselle entrylle uniikin id:n. Id kasvaa inkrementaalisesti, joten järjestämme entryt id:n perusteella käänteisesti: <code>entries | orderBy:'id':true</code>. Huom: olioiden id:n perusteella tapahtuva järjestäminen ei ole välttämättä järkevää, parempi olisi liittää jsoniin mukaan olioiden luontiaika.
 
 Tehdään vielä sovellukseen mahdollisuus rajoittaa näytettäviä blogientryjä tekstihaun perusteella. Käytetään filtteriä nimeltä [filter](https://docs.angularjs.org/api/ng/filter/filter):
 
@@ -515,19 +515,19 @@ Filtterejä on myös helpohko kirjoittaa itse.
 
 ## routing
 
-Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim tekisimme yksittäiselle blogille oman sivun (joka mahdollistaa esim. blogin editoinnin), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate. Järkevä tapa hoitaa asia on Angularin reititysmekanismin käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
+Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim. tekisimme yksittäiselle blogille oman sivun (joka mahdollistaisi blogin editoinnin jne), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate ja kontrolleri. Järkevä tapa hoitaa asia on Angularin *reititysmekanismin* käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
 
-## omat direktiivit
+## omat direktiivit 
 
-Angularin magia saadaan aikaan toisaalta kontorollerien ja näkymätemplaten jakaman scopen avulla, toisaalla taas _direktiiveillä_ joita kirjoittamalla määritellään miten näkymätemplatejen tulee toimia. Angularissa on runsaasti valmiita direktiivejä, mm. jo meille tutut _ng-repeat_, _ng-model_, _ng-click_, _ng-show_ jne...
+Angularin magia saadaan aikaan toisaalta kontorollerien ja näkymätemplaten jakaman scopen avulla, toisaalla taas _direktiiveillä_,joita kirjoittamalla määritellään miten näkymätemplatejen tulee toimia. Angularissa on runsaasti valmiita direktiivejä, mm. jo meille tutut _ng-repeat_, _ng-model_, _ng-click_, _ng-show_ jne...
 
-Angularin valmiilla direktiiveillä päästään jo jonnekin asti, mutta sovelluskehyksen todellinen voima tulee siitä että se mahdollistaa omien, lähes mielivaltaisella tavalla toimivien direktiivien määrittelemisen. Direktiivit sopivat moneen tarkoitukseen, niiden avulla on mm. mahdollista määritellä uusia HTML-elementtejä.
+Angularin valmiilla direktiiveillä päästään jo jonnekin asti, mutta sovelluskehyksen todellinen voima tulee siitä, että se mahdollistaa omien, lähes mielivaltaisella tavalla toimivien direktiivien määrittelemisen. Direktiivit sopivat moneen tarkoitukseen, niiden avulla on mm. mahdollista määritellä uusia HTML-elementtejä.
 
-Monet valmiit direktiivit, esim. _ng-show_ ovat manipuloineet DOM:ia. Direktiivit ovatkin se paikka missä Angular-sovellusten kaiken DOM-manipuloinnin tulee tapahtua. On todella paha Angular-antipatterni koskea millään muotoa DOMiin kontrollereissa.
+Monet valmiit direktiivit, esim. _ng-show_ manipuloivat DOM:ia. Direktiivit ovatkin se paikka missä Angular-sovellusten kaiken DOM-manipuloinnin tulee tapahtua. On todella paha Angular-antipatterni koskea millään muotoa DOMiin kontrollereissa.
 
-Direktiivit ovat erittäin syvällinen aihe, katsotaan kuitenkin kohta yhtä esimerkkiä.
+Direktiivit ovat erittäin syvällinen aihe, katsotaan kuitenkin kohta yhtä esimerkkiä. Toteutetaan kuitenkin ensin sovellukseen sen käyttöä sujuvoittava pieni ominaisuus.
 
-Sovellus käyttäytyy nyt hieman ikävästi uuden blogipostauksen submittauksen jälkeen. Blogi ainoastaan lisätään ao. listalle ja formi katoaa. Lisätään sovelluksen lisäyksestä kertoa "flash"-viesti. 
+Sovellus käyttäytyy nyt hieman ikävästi uuden blogipostauksen submittauksen jälkeen. Blogi ainoastaan lisätään ao. listalle ja formi katoaa. Lisätään sovelluksen uuden blogientryn luomisesta kertova "flash"-viesti. 
 
 Lisätään html-templaten ylosaan seuraava:
 
@@ -554,6 +554,8 @@ Nyt blogin luova callback-metodi voi asettaa flashille arvon:
       $scope.blog = {}
     }
 ```
+
+Flash-viestiin liittyvän rastin klikkaaminen saa viestin pois ruudulta rastin yhteyteen määritellyn muutujan *flash* nollaava klikkauksenkäsittelijän <code>ng-click="flash=null"</code> ansiosta. 
 
 Ratkaisu toimii, mutta html-template alkaa näyttää koko ajan ikävämmältä.
 
