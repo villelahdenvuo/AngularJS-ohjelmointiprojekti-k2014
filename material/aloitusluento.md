@@ -390,6 +390,29 @@ app.controller('MainCtrl', function ($scope, Blogs) {
 });
 ```
 
+Hyödynnetään [bootstrapia](http://getbootstrap.com/) ja tehdään lomakkeesta hieman siistimmän näköinen (valitettavasti HTML:stä tulee samalla aikamoista sotkua):
+
+```html
+      <a class="btn btn-primary btn-lg btn-block" ng-click="formVisible = !formVisible" ng-hide="formVisible">Create a new entry</a>
+
+      <form ng-show="formVisible" role="form">
+        <div class="form-group">
+          <input class="form-control" type="text" ng-model="blog.user" placeholder="your name"></input>  
+        </div>    
+        <div class="form-group">
+          <input class="form-control" type="text" ng-model="blog.subject" placeholder="subject"></input>  
+        </div>   
+        <div class="form-group">  
+          <textarea class="form-control" rows="3" ng-model="blog.body" placeholder="content"></textarea>
+        </div>
+        <button class="btn btn-primary" ng-click="createBlog()">create</button>
+        <button class="btn btn-default" ng-click="formVisible=!formVisible">cancel</button>
+
+      </form>
+```
+
+Huomaa, että nyt käytössä direktiivi <code>ng-hide</code> jonka avulla elementin voi piilottaa silloin kuin tietty ehto evaluoituu todeksi.
+
 ## deployment
 
 Nyt on korkea aika deployata sovellus herokuun. Toimenpide on helppo, ensimmäisen vaiheen ohje löytyy [täältä](http://www.lars-schenk.com/deploying-a-yeoman-angular-app-to-heroku/1661).
