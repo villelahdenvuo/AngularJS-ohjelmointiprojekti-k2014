@@ -2,7 +2,11 @@
 
 Seuraavassa nopeasti kirjoitettu, oikolukematon tarina aloitusluennolla demonstroidun sovelluksen rakentumisesta.
 
-Sovelluksen Angular-frontendin koodi [täällä](https://github.com/mluukkai/ng-project-frontend) ja Rails-backendin koodi [täällä](https://github.com/mluukkai/ng-project-backend)
+* Sovelluksen Angular-frontendin koodi [täällä](https://github.com/mluukkai/ng-project-frontend) 
+* ja Rails-backendin koodi [täällä](https://github.com/mluukkai/ng-project-backend)
+* Itse sovellus [http://ng-project-fe.herokuapp.com](http://ng-project-fe.herokuapp.com)
+
+Saattaa olla kannattavaa käydä läpi virallinen [Angular tutoriaali](https://docs.angularjs.org/tutorial), ainakin luvut 1-7.
 
 ## sovellus alkuun
 
