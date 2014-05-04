@@ -472,6 +472,47 @@ Monet valmiit direktiivit, esim. _ng-show_ ovat manipuloineet DOM:ia. Direktiivi
 
 Direktiivit ovat erittäin syvällinen aihe, katsotaan kuitenkin kohta yhtä esimerkkiä.
 
+Sovellus käyttäytyy nyt hieman ikävästi uuden blogipostauksen submittauksen jälkeen. Blogi ainoastaan lisätään ao. listalle ja formi katoaa. Lisätään sovelluksen lisäyksestä kertoa "flash"-viesti. 
+
+Lisätään html-templaten ylosaan seuraava:
+
+```html
+      <div ng-show="flash" class="alert alert-success">
+        {{flash}}
+        <span style="float:right" ng-click="flash=null" class="glyphicon glyphicon-remove-sign"></span>
+      </div>
+```
+
+Luotu elementti siis näyttää scopen muuttujaan _flash_ sijoitetun tekstin _jos_ muuttujassa on jotain ja sen arvo ei ole false (eli sen arvo ei ole falsy).
+
+Nyt blogin luova callback-metodi voi asettaa flashille arvon:
+
+```javascript
+    $scope.createBlog = function() {
+      Blogs.create($scope.blog).success(function(data, status, headers, config) {
+        $scope.entries.push(data);
+      });
+      // asetetaan muuttujalle flash arvo
+      $scope.flash = "A new blogentry '"+$scope.blog.subject+"'' created"
+
+      $scope.formVisible = false;
+      $scope.blog = {}
+    }
+```
+
+Ratkaisu toimii, mutta html-template alkaa näyttää koko ajan ikävämmältä.
+
+Eristetän flash-viestin näyttäminen direktiiviksi. Luodaan oma html-elementti, jota voi käyttää aluksi seuraavasti
+
+```html
+   <flash></flash>
+```
+
+
+
+```javascript
+```
+
 ## routing
 
 Olemme kirjottaneet koko sovelluksen yhden kontrollerin alaisuuteen, samaan näkymätemplateen. Yleensä näin ei kannata tehdä. Jos esim tekisimme yksittäiselle blogille oman sivun (joka mahdollistaa esim. blogin editoinnin), kannattaisi tälle toiminnolle muodostaa oma näkymätemplate. Järkevä tapa hoitaa asia on Angularin reititysmekanismin käyttö. Angularin [tutoriaali](https://docs.angularjs.org/tutorial/step_07) esittelee aihetta ansiokkaasti.
