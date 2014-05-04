@@ -1,12 +1,20 @@
-## sovelluksen asennus
+# Aloitustilaisuden esimerkkisovellus
 
-Tehdään hakemisto
+Seuraavassa nopeasti kirjoitettu, oikolukematon tarina aloitusluennolla demonstroidun sovelluksen rakentumisesta.
+
+Sovelluksen Angular-frontendin koodi [täällä]() ja Rails-backendin koodi [täällä]()
+
+## sovellus alkuun
 
 Ks. ensin [https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
+Tehdään sovellukselle hakemisto
+
+Mennään hakemistoon ja luodaan sovellusrunko komennolla <code>yo angular</code>
+
 Käynnistetään komennolla <code>grunt server</code>, ja mennään sovelluksen sivulle [http://127.0.0.1:9000](http://127.0.0.1:9000)
 
-Syntyy aluksi sekavahkolva vaikuttava projektirunko:
+Syntyy aluksi sekavahkolta vaikuttava projektirunko:
 
 <pre>
 bower.json        - riipuvuuksien määrittely  
