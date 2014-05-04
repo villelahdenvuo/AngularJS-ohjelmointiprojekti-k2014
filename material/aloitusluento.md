@@ -598,7 +598,76 @@ viittaa direktiivin sisällä muuttuja _message_ samaan olioon kuin muualla sove
         $scope.flash = "A new blog entry '"+$scope.blog.subject+"'' created"
 ```
 
-Css
+Tällä hetkellä flashviesti on kovakoodattu käyttämään
+bootstrapin tyyliä [alert-success](http://getbootstrap.com/components/#alerts). 
+
+Muutamme direktiiviä siten, että flashviestin tyyli on mukattavissa attribuutin _alert_ avulla:
+
+```html
+      <flash message='flash' type='success'>
+      </flash>
+```
+```html
+      <flash message='dangerousThing' type='warning'>
+      </flash>
+```
+
+Muutetaan direktiivin templatea hieman poistamalla siitä flashin tyypin tarkentanut luokka:
+
+```html
+<div ng-show="message" class="alert">
+  {{message}}
+  <span style="float:right" ng-click="message=null" class="glyphicon glyphicon-remove-sign"></span>
+</div>
+```
+
+Direktiivin määrittelemän funktion laajennus tapahtuu seuraavasti:
+
+```javascript
+app.directive('flash', function() {
+  return {
+      restrict: 'AE',
+      replace: true,
+      scope: {
+        message:'='
+      },
+      templateUrl: 'views/flash.html',
+      link: function(scope, elem, attrs) {
+        if ( attrs['type']!=undefined) {
+          elem.addClass('alert-'+attrs['type'])
+        } else {
+          elem.addClass('alert-success')
+        } 
+      }
+  };
+});
+```
+
+Ensinnäkin lisäsimme määrittelyn <code>replace: true</code>. Tämä oltaisiin voitu tehdä jo aiemmin. Määrittelmä saa aikaan sen, että direktiivin template korvaa DOM:ssa kokonaan tägin  <code>flash</code>
+
+Mielenkiintoisempi on nyt mukaan otettu funktio _link_. Linkitysfunktio suoritetaan siinä vaiheessa kun direktiivin template ja siihen liitetty scope renderöidään HTMLään. Linkitysfunktio saa kolme parametria, _scope_ on direktiivin scope, _elem_ on itse direktiivielementti, meidän tapauksessamme templaten määrittelemä div. Elementti on wrapatty _jquery_-olioksi.
+Kolmantena parametrina on direktiivin sisältämät attribuutit. 
+
+Määrittelemämme linkitysmetodi ottaa _type_-attribuutin, muodostaa tästä elementille lisättävän luokan ja liittää sen elementtiin. Elementtiä käsitellään Angularin sisältämällä 'minijqueryllä' [jqLite:llä](https://docs.angularjs.org/api/ng/function/angular.element) 
+
+Eli jos direktiiviä käytetään seuraavasti
+
+```html
+      <flash message='dangerousThing' type='warning'>
+      </flash>
+```
+
+lisää _link_-funktio flashille luokan 'alert-warning'. Jos tyyppiä ei määritellä:
+
+```html
+      <flash message='dangerousThing'>
+      </flash>
+```
+
+liittää _link_-funktio flashille oletusarvoisen 
+'alert-success'.
+
+Direktiivit ovat erittäin syvällinen aihe ja olemme tässä vasta repäisseet pintaa...
 
 ## interceptorit
 
