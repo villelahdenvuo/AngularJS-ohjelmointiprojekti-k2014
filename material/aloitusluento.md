@@ -327,7 +327,7 @@ app.factory('Blogs', function($http){
     return blogsService;
  
 });
-```javascript
+```
 
 Kontrollerille on nyt injektoitava määrittelemämme <code>Blogs</code>-palvelu. Kontrollerilla ei ole enää riippuvuutta $http-palveluun, joten sitä ei tarvitse enää injektoida:
 
@@ -401,6 +401,10 @@ Seuraavaksi luodaan tavanomaiseen tapaan heroku-sovellus (komennolla <code>herok
 Sovelluksen pitäisi sitten toimia: [http://ng-project-fe.herokuapp.com](http://ng-project-fe.herokuapp.com)
 
 ## lisää...
+
+## direktiivit
+
+## interceptorit
 
 ```javascript
 ```
