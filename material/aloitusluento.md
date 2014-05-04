@@ -4,6 +4,8 @@ Seuraavassa nopeasti kirjoitettu, oikolukematon tarina aloitusluennolla demonstr
 
 Sovelluksen Angular-frontendin koodi [täällä](https://github.com/mluukkai/ng-project-frontend) ja Rails-backendin koodi [täällä](https://github.com/mluukkai/ng-project-backend)
 
+Itse sovellus [http://ng-project-fe.herokuapp.com](http://ng-project-fe.herokuapp.com)
+
 ## sovellus alkuun
 
 Ks. ensin [https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
