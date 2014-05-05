@@ -63,7 +63,7 @@ body-tagin attribuutti <code>ng-app="frontendApp"</code> määrittelee, että ky
 
 div-tagiin lisätyt attribuutit määrittelevät että ko. kohtaan renderöidään näkymätemplate _main.html_ ja siihen liittyy *kontrolleri* nimeltään <code>MainCtrl</code>.
 
-Hakemistossa _app/views_ sijaitsevassa näkmätemplatessa
+Hakemistossa _app/views_ sijaitsevassa näkymätemplatessa
 *main.html* on kaikenlaista sisältöä. Tehdään siten, että kopioidaan mainissa oleva navigaatiopalkki tiedostoon index.html ja luovutaan mainin "includaamisesta", index.html tulee näin muotoon:
 
 ```html
@@ -86,6 +86,9 @@ Hakemistossa _app/views_ sijaitsevassa näkmätemplatessa
 
       <h2>List here some stuff</h2>
     </div>
+        
+    ...
+</body>
 ```
 
 Teemme siis sovelluksemme hieman hyvien tapojen vastaisesti tiedostoon _index.html_.
