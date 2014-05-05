@@ -2,7 +2,7 @@
 
 Seuraavassa kiireessä kirjoitettu, oikolukematon tarina aloitusluennolla demonstroidun sovelluksen rakentumisesta. Pahoittelen tekstin huonoutta. Pull requesteilla voi korjailla typoja ja parantaa kieliasua!
 
-Mukana on myös edityneimpiä asioita (kuten direktiivit ja interceptorit) joihin aluitusluennolla ei päästä.
+Mukana on myös edityneimpiä asioita (kuten direktiivit ja interceptorit) joihin aloitusluennolla ei päästä.
 
 * Sovelluksen Angular-frontendin koodi [täällä](https://github.com/mluukkai/ng-project-frontend) 
 * ja Rails-backendin koodi [täällä](https://github.com/mluukkai/ng-project-backend)
@@ -14,17 +14,17 @@ Järkevin tapa lukea tätä ohjetta lienee rakentaa sovellus pala palalta samall
 
 ## sovellus alkuun
 
-Järkevin tapa Anglar-projektien tekoon tällä hetkellä lienee projektin hallinta [Yeomanilla](http://yeoman.io/).
+Järkevin tapa Angular-projektien tekoon tällä hetkellä lienee projektin hallinta [Yeomanilla](http://yeoman.io/).
 
 Katso ensin aiheeseen liittyvä [video](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
-Ensin asennetaan Yeoman `npm intall -g yo` ([laitoksen koneilla vaatii säätöä](https://github.com/tuhoojabotti/NodeJS-ohjelmointiprojekti-k2014/blob/master/ohjeet/aloittaminen.md#yeoman)) ja Angular-generaattori `npm install generator-angular`
+Ensin asennetaan Yeoman `npm install -g yo` ([laitoksen koneilla vaatii säätöä](https://github.com/tuhoojabotti/NodeJS-ohjelmointiprojekti-k2014/blob/master/ohjeet/aloittaminen.md#yeoman)) ja Angular-generaattori `npm install generator-angular`
 
 Tehdään ensin sovellukselle hakemisto, mennään hakemistoon ja luodaan sovellusrunko komennolla <code>yo angular</code>
 
 Käynnistetään komennolla <code>grunt serve</code>, ja mennään sovelluksen sivulle [http://127.0.0.1:9000](http://127.0.0.1:9000)
 
-Ruvetaan sitten tutustumaan sovelluksen rakenteeseen-
+Ruvetaan sitten tutustumaan sovelluksen rakenteeseen.
 
 Komennon <code>yo angular</code> suorittamisen myötä syntyy projektirunko:
 
@@ -45,9 +45,9 @@ test              - testit
 
 _index.html_ on sekavahkolta vaikuttava tiedosto, jonka tarkoituksena on määritellä sovelluksen "layout" ja ladata sovelluksen tarvitsemat js-kirjastot ja css:t.
 
-Ellei kyseessä ole hyvin yksinkertainen sovellus, tiedostoon index.html **ei** yleensä ole tarkotus laittaa muuta sovelluksen sisältöä koskevaa kuin kaikille sivuille yhteiset asiat, esim. navigaatiopalkki. 
+Ellei kyseessä ole hyvin yksinkertainen sovellus, tiedostoon index.html **ei** yleensä ole tarkoitus laittaa muuta sovelluksen sisältöä koskevaa kuin kaikille sivuille yhteiset asiat, esim. navigaatiopalkki. 
 
-Tiedosto sisätää 2 merkilepantavaa asiaa:
+Tiedosto sisältää 2 merkillepantavaa asiaa:
 ```html
 <body ng-app="frontendApp">
 
@@ -147,7 +147,7 @@ viittaus sovelluksen määrittelemään moduuliin. Sen jälkeen moduuliin _liite
 Kontrolleri määritellään anonyymin funktion avulla.
 Funktion parametrina on <code>$scope</code>. Parametrin arvona tulee olemaan kontrollerin hallinnoiman sivun osan "scope", eli Angular-magiaan kuuluva mystinen liima, joka "liittää" näkymätemplatet (eli html-tiedostot) ja kontrollerit toisiinsa. 
 
-[Scope](https://docs.angularjs.org/guide/scope) on aika syvllinen asia. Sovelluksella on yleensä useita scopeja, scopet voivat olla järjestäytyneet hierarkkisesti, eli scopella voi olla lapsiscopeja ym... Jätämme scopejen tarkemman käsittelyn harjoitustehtäväksi.
+[Scope](https://docs.angularjs.org/guide/scope) on aika syvällinen asia. Sovelluksella on yleensä useita scopeja, scopet voivat olla järjestäytyneet hierarkkisesti, eli scopella voi olla lapsiscopeja ym... Jätämme scopejen tarkemman käsittelyn harjoitustehtäväksi.
 
 Angular *injektoi* scopen automaattisesti kontrollerille, eli kun metodia kutsutaan, parametrilla on maagisesti oikea arvo. Parametrin nimi on merkityksellinen, jos parametri olisi nimetty eri tavalla, ei sille injektoituisi oikeaa arvoa (eli kontrollerin hallinnoiman sovelluksen osan scopea). Angular siis antaa parametrille arvoksi nimenomaan scopen sen nimen <code>$scope</code> perusteella.
 
