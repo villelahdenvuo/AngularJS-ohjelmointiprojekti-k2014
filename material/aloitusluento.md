@@ -18,9 +18,11 @@ Järkevin tapa Anglar-projektien tekoon tällä hetkellä lienee projektin halli
 
 Katso ensin aiheeseen liittyvä [video](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
+Ensin asennetaan Yeoman `npm intall -g yo` (laitoksen koneilla vaatii säätöä) ja Angular-generaattori `npm install generator-angular`
+
 Tehdään ensin sovellukselle hakemisto, mennään hakemistoon ja luodaan sovellusrunko komennolla <code>yo angular</code>
 
-Käynnistetään komennolla <code>grunt server</code>, ja mennään sovelluksen sivulle [http://127.0.0.1:9000](http://127.0.0.1:9000)
+Käynnistetään komennolla <code>grunt serve</code>, ja mennään sovelluksen sivulle [http://127.0.0.1:9000](http://127.0.0.1:9000)
 
 Ruvetaan sitten tutustumaan sovelluksen rakenteeseen-
 
