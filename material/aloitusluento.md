@@ -262,7 +262,7 @@ Tehdään sovellukseemme mahdollisuus blogien kirjoittamiseen. Luodaan ensin nä
         body:
         <input type="text" ng-model="blog.body"></input>
         <br>
-        <button ng-submit="createBlog()">create</button>
+        <button ng-click="createBlog()">create</button>
       </form>
 
       {{blog}}
@@ -272,7 +272,7 @@ Lomake ei vielä tee mitään ja on ulkoasultaan ruma. Tarkastellaan kuitenkin p
 
 Lomakkeen alle on lisätty rivi <code>{{blog}}</code>, joka näyttää olion *blog* jonka kenttiin syötteen arvot sidotaan. Jos kokeilet kirjottaa jotain syötekenttiin, pääset todistamaan Angularin two way binding -magiaa.
 
-Nappiin on kiinnitetty *ng-submit*-direktiivin avulla *tapahtumankuuntelija* nimeltään <code>createBlog</code>. Kuuntelijametodia ei ole vielä olemassa, se täytyy määritellä kontrollerissa ja liittää scopeen. Tehdään näin:
+Nappiin on kiinnitetty *ng-click*-direktiivin avulla *tapahtumankuuntelija* nimeltään <code>createBlog</code>. Kuuntelijametodia ei ole vielä olemassa, se täytyy määritellä kontrollerissa ja liittää scopeen. Tehdään näin:
 
 ```javascript
 app.controller('MainCtrl', function ($scope, $http) {
