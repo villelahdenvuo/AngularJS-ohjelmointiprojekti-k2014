@@ -20,7 +20,7 @@ Todennäköisesti helpoin tapa päästä nopeasti liikkeelle on Firebase ja Gith
 ## Workflow
 
   * http://yeoman.io/
-  * [Yeoman toimimaan laitoksen koneilla](https://github.com/tuhoojabotti/NodeJS-ohjelmointiprojekti-k2014/blob/master/ohjeet/aloittaminen.md#yeoman) (Tee ennen yeomanin asentamista.)
+  * [Yeoman toimimaan laitoksen koneilla](https://github.com/tuhoojabotti/NodeJS-ohjelmointiprojekti-k2014/blob/master/ohjeet/aloittaminen.md#yeoman) (Kolme maagista shell-komentoa.)
   * katso [tämä](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
 ## Ohjeita
