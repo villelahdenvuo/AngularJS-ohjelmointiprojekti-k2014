@@ -43,6 +43,7 @@ AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappi
  * Kaikille **pakollinen** demotilaisuus maanantaina 12.5. klo 10:15 luokassa B221, **joka on siis kurssin deadline!**
  * tuntikirjanpito.md (~20h = 1 op)
    * **Ilman ei tule noppia**
+   * 3op:n töissä on oltava omia servicejä ja direktiivejä
    * Ryhmässä jokaisella oma kirjanpito
    * Merkataan siis montako tuntia on käytetty minäkin päivänä ja loppuun yhteenveto.
    * Päivittäkää repoa useasti, ei yhtä suurta pushia kurssin lopuksi.
