@@ -470,7 +470,7 @@ Huomaa, että nyt käytössä *ng-shown* 'vastakohtadirektiivi' <code>ng-hide</c
 
 Nyt on korkea aika deployata sovellus herokuun. Toimenpide on helppo, ensimmäisen vaiheen ohje löytyy [täältä](http://www.lars-schenk.com/deploying-a-yeoman-angular-app-to-heroku/1661).
 
-Toinem vaihe on "kääntää" sovellus komennolla <code>grunt build</code>. Tällöin ovelluksen css:ien ja js-koodin osalta minimoitu versio syntyy hakemistoon _dist_. Oletusarvoisesti _.gitigonre_ tiedosto ignoroi ko. hakemiston, ignorointi tulee poistaa!
+Toinen vaihe on "kääntää" sovellus komennolla <code>grunt build</code>. Tällöin sovelluksen css:ien ja js-koodin osalta minimoitu versio syntyy hakemistoon _dist_. Oletusarvoisesti _.gitigonre_ tiedosto ignoroi ko. hakemiston, ignorointi tulee poistaa!
 
 Seuraavaksi luodaan tavanomaiseen tapaan heroku-sovellus (komennolla <code>heroku create</code>) ja pushataan commitoitu repositorio (jossa siis on oltava mukana myös _dist_-hakemisto) herokuun. 
 
