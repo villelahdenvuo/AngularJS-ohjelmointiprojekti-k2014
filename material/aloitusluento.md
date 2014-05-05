@@ -18,7 +18,7 @@ Järkevin tapa Angular-projektien tekoon tällä hetkellä lienee projektin hall
 
 Katso ensin aiheeseen liittyvä [video](https://www.youtube.com/watch?v=iUQ1fvdO9GY#t=719)
 
-Ensin asennetaan Yeoman `npm install -g yo` ([laitoksen koneilla vaatii säätöä](https://github.com/tuhoojabotti/NodeJS-ohjelmointiprojekti-k2014/blob/master/ohjeet/aloittaminen.md#yeoman)) ja Angular-generaattori `npm install generator-angular`
+Ensin asennetaan Yeoman `npm install -g yo` ([laitoksen koneilla vaatii säätöä](https://github.com/tuhoojabotti/NodeJS-ohjelmointiprojekti-k2014/blob/master/ohjeet/aloittaminen.md#yeoman)), Angular-generaattori `npm install generator-angular` ja Grunt `npm install -g grunt-cli`
 
 Tehdään ensin sovellukselle hakemisto, mennään hakemistoon ja luodaan sovellusrunko komennolla <code>yo angular</code>
 
