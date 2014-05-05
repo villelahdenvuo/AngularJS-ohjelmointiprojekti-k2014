@@ -257,7 +257,7 @@ Tehdään sovellukseemme mahdollisuus blogien kirjoittamiseen. Luodaan ensin nä
 ```html
       <h2>Create a new entry</h2>
 
-      <form>
+      <form ng-submit="createBlog()">
         name: <input type="text" ng-model="blog.user"></input>        
         <br>
         subject: <input type="text" ng-model="blog.subject"></input>
@@ -265,7 +265,7 @@ Tehdään sovellukseemme mahdollisuus blogien kirjoittamiseen. Luodaan ensin nä
         body:
         <input type="text" ng-model="blog.body"></input>
         <br>
-        <button ng-submit="createBlog()">create</button>
+        <button>create</button>
       </form>
 
       {{blog}}
