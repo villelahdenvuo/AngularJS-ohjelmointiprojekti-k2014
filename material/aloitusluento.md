@@ -728,7 +728,6 @@ liittää _link_-funktio flashille oletusarvoisen luokan 'alert-success'.
 
 Direktiivit ovat erittäin syvällinen aihe ja olemme tässä vasta repäisseet pintaa...
 
-# allaoleva valmistuu tiistai-iltaan mennessä
 
 ## autentikointi
 
@@ -828,13 +827,188 @@ Lyhyesti idea on seuraava:
 Sovelluksemme backend olettaa, että AT on liitetty pyynnön
 *auth-token* headeriin.
 
+Jotta saamme frontendin toimimaan, tarvitsemme:
+* kirjautumisen mahdollistavan lomakkeen
+* tavan muistaa autentikoitumisen yhteydessä saatava AT
+
+Aloitetaan lomakkeella. Lisätään se aluksi sattumanvaraiseen kohtaan sivua:
+
+```html
+      <form ng-hide="loggedIn.status" ng-submit="login()">
+        <input ng-model="credentials.user" placeholder="username"/>
+        <input ng-model="credentials.password" placeholder="password"/>
+        <button>login</button>
+      </form>
+
+      <form ng-show="loggedIn.status">
+        {{loggedIn.user}} 
+        <button ng-click="logout()">logout</button>
+      </form>
+```
+
+sivulle on lisätty myös poiskirjatumisnappi.
+
+Scopeen on lisätty muuttuja *loggedIn*, joka sisältää totuusarvoisen kentän *status* jonka arvo on true jos käyttäjä on kirjautuneena. Muuttujan kenttä *user* kertoo kirjautuneen käyttäjän nimen.
+
+Sisään- ja uloskirjautumisesta huolehtivat callbackit ovat seuraavanlaiset:
+
+```javascript
+app.controller('MainCtrl', function ($scope, Blogs, Auth) {
+    $scope.loggedIn = Auth.logged;
+
+    $scope.logout = function() {
+      Auth.logout()
+    }
+
+    $scope.login = function(){
+      Auth.login($scope.credentials)
+      .then( 
+        function(data) {
+          // success
+        },function( data ) {
+          // failure
+        }
+      );
+      $scope.credentials = {}
+    }
+
+    // ...
+}
+```
+
+Kontrollerille on nyt injektoitu *Auth*-niminen service. Kuten arvata saattaa, kyseinen palvelu kapseloi kirjautumiseen liittyvät toiminnallisuuden metodiensa *logout* ja *login* avulla. Palveluun liittyy myös olio *logged*, joka kertoo kirjautumisstatuksen. Olio liitetään scopeen nimellä *loggedIn*.
+
+Kirjautumispalvelun metodit ovat suoraviivaisia. Metodiin *login* liittyvä *then* on jotain mitä emme ole aiemmin nähneet.
+
+Thenin parametrina on kaksi callback-metodia. Tässä tilanteessa metodit toimivat lähes samalla tavalla kuin aiemmin käyttämämme $http-kutsuun liittyvät *success* ja *error* callbackit. Then liittyy Angularin [promise]
+(https://docs.angularjs.org/api/ng/service/$q) rajapintaan.
+Katsomme asiaa hieman tarkemmin Auth-palvelun koodin yhteydessä.
+
+Tällä hetkellä emme tee callbackeissa mitään, joten voisimme jättää ne määrittelemättä.
+
+Auth-palvelun koodi on seuraavassa:
+
+```javascript
+app.factory('Auth', function($http){
+    var URL = 'http://ng-project-backend.herokuapp.com/session'; 
+    var service = {};
+
+    service.logged = {}; 
+
+    service.login = function(credentials) {
+      return $http.post(URL, credentials).then(
+        function (token) {
+          service.logged.status = true;
+          service.logged.user = credentials.user;
+          $http.defaults.headers.common['auth-token'] = token.data;
+          return token.data;
+        }
+      )  
+    } 
+
+    service.logout = function(credentials) {
+      return $http.delete(URL).then(
+        function () {
+          service.logged.status = false;
+          service.logged.user = null;
+          delete $http.defaults.headers.common['auth-token']
+          return null;
+        }
+      )
+    } 
+
+    return service;
+});
+```
+
+Palveluun on nyt liitetty metodien lisäksi olio *logged*, jonka attribuutin *status* arvoksi asetetaan true kun käyttäjä on kirjautuneena. Samalla *logged*:in attribuutin *user* arvoksi asetetaan kirjautuneen käyttäjän nimi. Kontrolleri siis kiinnittää muuttujan scopeen nimellä *loggenIn*.
+
+Metodin *login* palvelun $http kutsuun liittyy nyt tavanomaisen *success* callbackin sijaan jo edellä nähty *then*. Kyseessä on metodi jonka ensimmäisenä parametrina oleva metodi suoritetaan jos http-pyyntö onnistuu. Jos kutsu epäonnistuu, kutsuttaisiin toisena parametrina olevaa metodia jos sellainen on olemassa. 
+
+Metodi *then* mahdollistaa callback-metodien ketjutuksen siten, että asynkroninen koodi saadaan käyttäytymään synkronisen tapaan. Näin voidaan välttää js-ohjelmoinnissa kovin tyypillinen callback-helvetti.
+
+Theniä voitaisiin käyttää esim. seuraavaa tyyliin:
+
+```javascript
+$http.get('/beer/1')
+.then(
+  function( response ){
+    $scope.beer = response.data;
+    return $http('/breweries/'+beer.brewery_id)
+  })
+).then(
+  function( response ){
+    $scope.brewery = response.data;
+    return $http('/concerns/'+brewery.concern_id)
+  }) 
+).then(
+  function( response ){
+    $scope.concern = response.data;
+  }
+)
+```
+
+Ensin haetaan olut jonka id on 1, tämän jälkeen olueeseen liittyvän panimon tiedot ja lopulta panimoon liittyvän konsernin tiedot. Kyseessä on oikeastaan monitasoinen callback-kutsu joka saadaan thenien aikaan näyttämään 'synkronisesti' eli peräkkäin suoritetuilta hauilta.
+
+Thenin avulla on myös mahdollista suorittaa kätevästi kaksi eri callback-metodia tiettyyn kutsuun liittyen. Näin tapahtuu myös Auth-palvelussa: 
 
 
+```javascript
+    service.login = function(credentials) {
+      return $http.post(URL, credentials).then(
+        function (token) {
+          service.logged.status = true;
+          service.logged.user = credentials.user;
+          $http.defaults.headers.common['auth-token'] = token.data;
+          return token.data;
+        }
+      )  
+    } 
+```
+
+Metodin *post* 'ensimmäinen' callback muuttaa kirjautumis-statuksen todeksi, tallettaa kirjautuneen käyttäjän nimen sekä asettaa palvelimen palauttaman tokenin headerin *auth-token* arvoksi:
+
+<pre>
+$http.defaults.headers.common['auth-token'] = token.data;
+</pre>
+
+Headerin lisääminen saa aikaan sen, että se liitetään _kaikkiiin_ palvelimelle tehtäviin HTTP-kutsuihin.
+
+Lopuksi token palautetaan mahdolliselle metodin käyttäjälle. Eli jos metodia käytettäisiin kontrollerista seuraavasti:
+
+```javascript
+    $scope.login = function(){
+      Auth.login($scope.credentials)
+      .then( 
+        function(data) {
+          // print token
+          console.log(data)
+        }
+      );
+      $scope.credentials = {}
+    }
+```
+
+saisi kontrollerin rekisteröimä callback parametriksi Auth-palvelun palvelimelta hakeman autentikointitokenin.
+
+Auth-pavelun metodi *login* toimii yllätyksettömästi. Ensin pyydetään palvelinta tuhoamaan HTTP DELETE -kutsuun liittyvä token, poistaan tokenin sisältämä headeri ja muutetaan kirjautumisstatus.
+
+# allaoleva valmistuu ehkä tiistaina, varmuudella keskiviikko-iltaan mennessä
+
+
+## interceptorit 
 
 ```javascript
 ```
 
-## interceptorit 
+```javascript
+```
+
+```javascript
+```
+
+```javascript
+```
 
 ```javascript
 ```
