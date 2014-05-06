@@ -728,14 +728,113 @@ liittää _link_-funktio flashille oletusarvoisen luokan 'alert-success'.
 
 Direktiivit ovat erittäin syvällinen aihe ja olemme tässä vasta repäisseet pintaa...
 
-# jatkuu huomenna...
+# allaoleva valmistuu tiistai-iltaan mennessä
 
 ## autentikointi
 
-## interceptorit
+Päätämme toteuttaa sovellukseen ominaisuuden, jonka avulla (sopimattoman sisällön omaavia) blogikirjoituksia on mahdollista poistaa.
+
+Lisätään jokaisen blogientryn yhteyteen roskisnappi:
+
+```html
+      <div>
+        <div ng-repeat="entry in entries | filter:criteria| orderBy:'id':true">
+          <h4>
+            {{entry.subject}} by {{entry.user}} 
+            <span 
+              style="float:right" 
+              ng-click="deleteBlog(entry)" 
+              class="glyphicon glyphicon-trash">
+            </span>
+          </h4>
+
+          <blockquote>
+            {{entry.body}}
+          </blockquote>    
+        </div>
+      </div>
+```
+
+Nappiin on kiinnitetty klikkauksenkuuntelija *deleteBlog*, joka saa parametrikseen poistettavan blogientryolion.
+
+Klikkauksenkuuntelija määritellään ja kiinnitetään scopeen kontrollerissa:
+
+```javascript
+app.controller('MainCtrl', function ($scope, Blogs) {
+    // ...
+
+    $scope.deleteBlog = function(entry) { 
+      Blogs.delete(entry).success(function(){
+        var index = $scope.entries.indexOf(entry)
+        $scope.entries.splice(index, 1);
+      });
+    }
+
+    // ...
+}
+```
+
+Kuuntelija siis kutsuu *Blogs*-palvelun metodia *delete* (jonka lisäämme kohta palvelulle). Takaisinkutsussa tuhottu blogientry poistetaan myös scopessa olevalta listalta.
+
+Palvelun *Blogs* uusi metodi on suoraviivainen. Blogientryn poistaminen onnistuu helposti tekemällä backendille sopiva HTTP DELETE -operaatio:
+
+```javascript
+app.factory('Blogs', function($http){
+    var URL_BASE = 'http://ng-project-backend.herokuapp.com/api/blogs'; 
+
+    var blogsService = {};
+    
+    blogsService.all = function(){
+      return $http.get(URL_BASE+".json")  
+    } 
+
+    blogsService.create = function(data){
+      console.log("called")
+      return $http.post(URL_BASE+".json", data) 
+    } 
+
+    blogsService.delete = function(data){
+      return $http.delete(URL_BASE+"/"+data.id+".json", data) 
+    } 
+
+    return blogsService;
+});
+```
+
+Urlien hieman eroavan loppuosan takia refaktoroimme hieman myös vanhoja metodeja.
+
+Enne kuitenkaan halua että kuka vaan voi poistella blogientryjä. Päätämme, että ainoastaan järkestelmään kirjautuneet adminkäyttäjät voivat tehdä näin.
+
+Backend onkin konfiguritu vastaamaan toistoyritykseen HTTP-statuskoodilla 401 (Unauthorized) poisto yritetään tehdä kirjautumattomana. Konsolista käsin voi havaita että näin todellakin käy.
+
+Järjestelmän käyttäjät rekisteröidään suoraan backendiin sivun
+[http://ng-project-backend.herokuapp.com/users](http://ng-project-backend.herokuapp.com/users) kautta. 
+
+Autentikointi tapahtuu siten, että käyttäjänimi (username) ja salasana (password) lähetetään HTTP POST:in avulla osoitteeseen *http://ng-project-backend.herokuapp.com/session*
+
+Jos autentikointi onnistuu, palauttaa palvelin *autentikointitokenin*, jos ei, palauttaa palvelin HTTP statuskoodin 422 (Unprocessable Entity).
+
+Token-perustaisen autentikoinnin periaatetta on selitetty esim. [täällä](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/).
+
+Lyhyesti idea on seuraava:
+* fronend lähettää käyttäjätunnus/salasana-parin palvelimmelle
+* jos pari on validi, palauttaa palvelin AT:n (authorization token)
+* frontend tallettaa AT:n ja *liittää* sen mukaan kaikkiin palvelimelle meneviin pyyntöihin
+* jos palvelimelle tehdään pyyntö joka on sallittu vain osalle käyttäjistä, palvelin tarkastaa liittyykö pyyntöön validi AT
+  * jos ei, vastaa palvelin HTTP statuskoodilla 401 (unauthorized)
+* kun käyttäjä loggaa ulos sovelluksesta, pyytää fronend palvelinta mitätöimään AT:n
+  * mitätöinti voi tapahtua myös kuluneen ajan perusteella tms
+
+Sovelluksemme backend olettaa, että AT on liitetty pyynnön
+*auth-token* headeriin.
+
+
+
 
 ```javascript
 ```
+
+## interceptorit 
 
 ```javascript
 ```
