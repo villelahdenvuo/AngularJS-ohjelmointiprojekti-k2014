@@ -334,7 +334,7 @@ Palvelujen määrittelytapoja on muutamia, käytämme seuraavassa tehdasmetodia:
 
 ```javascript
 app.factory('Blogs', function($http){
-    var URL = 'http://ng-project-backend.herokuapp.com/api/blogs.json'; 
+    var URL = 'https://ng-project-backend.herokuapp.com/api/blogs.json'; 
 
     var blogsService = {};
     
