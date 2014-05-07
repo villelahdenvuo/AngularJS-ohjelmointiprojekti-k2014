@@ -1101,6 +1101,8 @@ Tehdään direktiivinä määritelty modaalidialogi [tätä sivua](http://adamal
 
 Huom: esim. bootstrap tarjoaa valmiita ratkaisuja dialogien tekemiseen, ks. [http://angular-ui.github.io/bootstrap/]
 
+Huom2: modaali näköjään hajottaa sovelluksen Safarissa...
+
 Template on seuraava:
 
 ```html
