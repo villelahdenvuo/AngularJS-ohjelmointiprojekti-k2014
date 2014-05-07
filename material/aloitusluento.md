@@ -995,11 +995,44 @@ Auth-pavelun metodi *login* toimii yllätyksettömästi. Ensin pyydetään palve
 
 # allaoleva valmistuu ehkä tiistaina, varmuudella keskiviikko-iltaan mennessä
 
-
 ## interceptorit 
 
-```javascript
+Tällä hetkellä sovellus ei tee mitään jos kirjautumattomana yritetään tuhota blogi. Luonnollinen korjaus tähän olisi pilottaa tuhomaisnappi jos käyttäjä ei ole kirjautuneena:
+
+```html
+    <div ng-repeat="entry in entries | filter:criteria| orderBy:'id':true">
+      <h4>
+        {{entry.subject}} by {{entry.user}} 
+        <span ng-show="loggedIn.status"
+          style="float:right" 
+          ng-click="deleteBlog(entry)" 
+          class="glyphicon glyphicon-trash">
+        </span>
+      </h4>
+
+      <blockquote>
+        {{entry.body}}
+      </blockquote>    
+    </div>
+  </div>
 ```
+
+Päätämme (paremman esimerkin puutteessa) kuitenkin olla piilottamatta tuhoamissymbolia. 
+
+Jos kirjautumaton käyttäjä yrittää poistaa blogin, vastaa palvelin HTTP-statuskoodilla 401. Tällöin suoritetaan http-palvelun delete-kutsuun liitetty *error*-callback. Eli voisimme huomauttaa kirjautumatonta käyttäjää, että operaatio vaatii kirjautumisen: 
+
+```javascript
+    $scope.deleteBlog = function(entry) { 
+      Blogs.delete(entry).success(function(){
+        var index = $scope.entries.indexOf(entry)
+        $scope.entries.splice(index, 1);
+      }).error(function(){
+        alert('you should be logged in')
+      });
+    }
+```
+
+Teemmekin kuitenkin tämän tilanteen kannalta suunnilleen samalla tavalla toimivan, mutta hieman erilaisen ratkaisun, ja error-calbackin sijaan 
 
 ```javascript
 ```
