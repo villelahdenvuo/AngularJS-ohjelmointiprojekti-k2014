@@ -1099,6 +1099,8 @@ Viimeistellään sovellus vielä nopeasti siten että tehdään sovellukseen kir
 
 Tehdään direktiivinä määritelty modaalidialogi [tätä sivua](http://adamalbrecht.com/2013/12/12/creating-a-simple-modal-dialog-directive-in-angular-js/) mukaillen. 
 
+Huom: esim. bootstrap tarjoaa valmiita ratkaisuja dialogien tekemiseen, ks. [http://angular-ui.github.io/bootstrap/]
+
 Template on seuraava:
 
 ```html
