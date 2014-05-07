@@ -1032,16 +1032,166 @@ Jos kirjautumaton käyttäjä yrittää poistaa blogin, vastaa palvelin HTTP-sta
     }
 ```
 
-Teemmekin kuitenkin tämän tilanteen kannalta suunnilleen samalla tavalla toimivan, mutta hieman erilaisen ratkaisun, ja error-calbackin sijaan 
+Teemmekin kuitenkin tämän tilanteen kannalta suunnilleen samalla tavalla toimivan, mutta hieman erilaisen ratkaisun, ja error-calbackin sijaan käytämme [interceptoria](https://docs.angularjs.org/api/ng/service/$http). Interceptorit ovat funktioit, joita voidaan määritellä ajettavaksi joko juuri ennen HTTP-pyynnön tekemistä tai juuri ennen HTTP-pyynnön vastauksen kutsujalle palauttamista. 
+
+Esim. seuraava interceptori kirjottaa konsoliin jokaisen HTTP-pyynnön palauttaman statuskoodin:
 
 ```javascript
+app.factory('myHttpInterceptor', function($q) {
+    return {
+     'response': function(response) {
+        console.log(response.status)
+
+        return response;
+      },
+     'responseError': function(response) {
+        console.log(response.status)
+
+        return $q.reject(response);
+      }
+    };
+  });
 ```
 
-```javascript
-```
+Interceptori on määritelty nyt palveluna nimeltään myHttpInterceptor. Palvelulle on määritelty erikseen metodit jotka suoritetaan onnistuneen ja epäonnistuneen HTTP-kutsun yhteydessä. Onnistuneen kutsun yhteydessä suoritettava metodi *response* palauttaa parametrinaan saamansa response-olion eteenpäin. 
+Epäonnistuneen kutsun yhteyteen määritelty metodi *responseError* rejektoi pyynnön palvelun *$q* avulla. 
+
+Interceptori pitää vielä ottaa käyttöön config-metodin avulla:
 
 ```javascript
+app.config(function($httpProvider) {
+  $httpProvider.interceptors.push('myHttpInterceptor')
+});
 ```
 
+Interceptoreita voi tarvittaessa olla useita:
+
 ```javascript
+app.config(function($httpProvider) {
+  $httpProvider.interceptors.push('firstInterceptor');
+  $httpProvider.interceptors.push('secondInterceptor');
+  $httpProvider.interceptors.push('thirdInterceptor');
+});
 ```
+
+Määritellään nyt interceptori, joka kehoittaa alertin avulla käyttäjää kirjautumaan *jos* suorittaa kirjatutumista vaativan toimenpideen (eli statuskoodi on 401 unauthorized). Tässä tapauksessa interceptori palauttaakin response-olion, eli operaatio ei enää kutsujan kannalta näytä epäonnistuneelta. Jos statuskoodi on joku muu, interceptori ei tee mitään eli palauttaa edelleen rejektoituna pysyvän pyynnön.
+
+```javascript
+app.factory('loginInterceptor', function($q) {
+    return {
+     'responseError': function(response) {
+        if ( response.status==401 ) {
+          alert('you should be logged in')
+          return response;
+        }
+
+        return $q.reject(response);
+      }
+    };
+  });
+```
+
+Interceptorin avulla voisimme, esim. avata eilaillisen HTTP-pyynnön yhteydessä automaattisesti login-dialogin. 
+
+Onnistuneen kirjautumisen yhteydessä olisi interceptorista käsin myös mahdollista suorittaa automaattisesti aiemmin epäonnistunut pyyntö.
+
+Viimeistellään sovellus vielä nopeasti siten että tehdään sovellukseen kirjautumisdialogi jonka interceptori avaa jos kirjaantumaton käyttäjä yrittää tehdä kirjautumista vaativan operaation. Ratkaisu ei ole paristakaan syystä kovin tyylikäs ja ei itseasiassa tarvitsisi edes interceptoria. Ajan puutteen vuoksi parempi ratkaisu (jossa intercepori odottaisi kirjautumisen tuloksen ja uusisi kielletyn operaation) jätetään harjoitustehtäväksi.
+
+Tehdään direktiivinä määritelty modaalidialogi [tätä sivua](http://adamalbrecht.com/2013/12/12/creating-a-simple-modal-dialog-directive-in-angular-js/) mukaillen. 
+
+Template on seuraava:
+
+```html
+<div class='ng-modal' ng-show='modal.visible'>
+  <div class='ng-modal-overlay'></div>
+  <div class='ng-modal-dialog' ng-style='dialogStyle'>
+
+    <h2>Please log in</h2>
+
+      <form ng-submit="login()" role="form">
+      <div class="form-group">
+        <input class="form-control" type="text" ng-model="credentials.user" placeholder="username"/>
+      </div>  
+      <div class="form-group">
+        <input class="form-control" ng-model="credentials.password" placeholder="password"/>
+      </div>  
+        <button class="btn btn-primary" ng-click="createBlog()">login</button>
+        <button ng-click='hideModal()' class="btn btn-default">cancel</button>
+      </form>
+
+  </div>
+</div>
+```
+
+Dialogi siis sisältää lomakkeen ja käyttää kahta callbackiä riippuen painetaanko *login* vai *cancel*. Lomake on näkyvissä jos muuttujan *modal* kentän *visible* arvo on tosi.
+
+Direktiivin määrittelevä koodi on seuraava
+
+```javascript
+app.directive('modal', function() {
+  return {
+    restrict: 'E',
+    controller: function($scope, Auth){
+      $scope.hideModal = function() {
+        scope.modal.visible = false;
+      };
+      $scope.login = function(){
+        Auth.login($scope.credentials)
+        $scope.modal.visible = false;
+      }
+    },
+    templateUrl: 'views/modal.html',
+  };
+});
+```
+
+Määrittely on suoraviivainen, direktiivin kontrollerin avulla määritellään direktiivin käyttämien klikkaustenkuuntelijoiden toiminnallisuus. Kontrollerille on injektoitu Auth-palvelu palvelimen kanssa käytävää kommunikointia varten.
+
+Interceptori on suoraviivainen, se asettaa dialogin näkyvyyden määrittelevän muuttujan arvoksi true:
+
+```javascript
+app.factory('loginInterceptor', function($q, $rootScope) {
+    return {
+     'responseError': function(response) {
+        if (response.status==401) {
+          $rootScope.modal.visible = true
+        }
+
+        return $q.reject(response);
+      }
+    };
+  });
+```
+
+Tässä tulee esille yksi ratkaisumme likaisista puolista, näkyvyyden määrittelevä muuttuja on jouduttu kiinnittämään sovelluksen kaikkien scopejen 'äitiin', eli rootScopeen, sillä interceptorin sisältä ei pystytä näkemään muihin sovelluksen scopeihin. Nyrkkisääntönä on, että rootscopea tulee käyttää erittäin harkiten. 
+
+Kontrolleri asettaa
+
+```javascript
+app.controller('MainCtrl', function ($rootScope, $scope, Blogs, Auth) {
+  //...
+  $rootScope.modal.visible = false;
+  //...
+}
+```
+
+Näkymätemplatea siloitellaan vielä liittämällä siihen modaali ja laittamalla "logout"-nappi navigaatiopalkkiin:
+
+```html
+    <div class="container" ng-controller="MainCtrl">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a ng-href="#">Home</a></li>
+          <li><a ng-href="#">About</a></li>
+          <li><a ng-href="#">Contact</a></li>
+          <li ng-show="loggedIn.status">
+            <a ng-click="logout()" ng-href="#">Logout</a>
+          </li>
+          </ul>
+        <h3 class="text-muted">TKTLng</h3>
+      </div>
+
+      <modal/></modal>
+```
+
+Esimerkkisovelluksemme on nyt valmis.
