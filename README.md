@@ -42,7 +42,7 @@ AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappi
     * Git – projektit tulee Githubiin, se helpottaa tarkistusta ja näyttää hyvältä CV:ssä.
 
 ## Käytännöt
- * Kaikille **pakollinen** demotilaisuus maanantaina 12.5. klo 10:15 luokassa B221, **joka on siis kurssin deadline!**
+ * Kaikille **pakollinen** demotilaisuus maanantaina 12.5. klo 09:15 luokassa B221, **joka on siis kurssin deadline!**
  * tuntikirjanpito.md (~20h = 1 op)
    * **Ilman ei tule noppia**
    * Ryhmässä jokaisella oma kirjanpito
