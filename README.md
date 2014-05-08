@@ -16,7 +16,7 @@ AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappi
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | vkl        | maanantai  |
 | ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- | ---------- |
-| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo 10:15  |
+| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo 09:15  |
 | [ohjaus] 12–16   |                |                |                |                |            | [deadline] |
 | [aihekuvaus]     | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         |            | [demo]     |
 
