@@ -6,14 +6,12 @@
 
 ## Johdanto
 
-AngularJS on tämän hetken ylivoimaisesti hipsterein tapa tehdä singlepageappien frontendejä. Googlaa lisää.
+AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä. Googlaa lisää.
 
 ## Ajankohtaista
-  * *8.5.* &ndash; demo aikaisuu tunnilla: aloitamme ma 12.5. jo klo 09.15.
+  * *8.5.* &ndash; **demo aikaisuu tunnilla**: aloitamme ma 12.5. jo klo 09.15.
     * kaikki sovellukset tulee demota koulun koneelta, aikaa 4 minuuttia per softa  
-  * *3.5.* &ndash; Ilmoittautuminen päättyi, :heavy_exclamation_mark: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:heavy_exclamation_mark:
-  * *14.4.* &ndash; Kurssisivua päivitelty
-  * *7.4.* &ndash; Kurssisivu luotu
+  * *3.5.* &ndash; Ilmoittautuminen päättyi :heavy_exclamation_mark: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:heavy_exclamation_mark:
 
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | vkl        | maanantai  |
