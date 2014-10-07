@@ -15,6 +15,7 @@ Valitettavasti suomeksi materiaalia Angularista löytyy hyvin niukasti, mutta ti
 
 ## Muita
   * [Kaikki resurssit](https://github.com/jmcunningham/AngularJS-Learning) - Satoja linkkejä kaikista aiheista
+  * [A Better Way to Learn AngularJS](https://thinkster.io/angulartutorial/a-better-way-to-learn-angularjs/) - Selkeän oloinen tutoriaali
   * [Firebase ja Angular](https://www.youtube.com/watch?v=e4yUTkva_FM) - Database (Backend) As A Service!
   * [Egghead.io](https://egghead.io/technologies/angularjs) - Loistavia videoita
   * [50 koodiesimerkkiä alkeista eteenpäin](https://github.com/curran/screencasts/tree/gh-pages/introToAngular) - Video + materiaalia
