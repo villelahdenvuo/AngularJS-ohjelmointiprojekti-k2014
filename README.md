@@ -12,11 +12,11 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
   * *7.10.* &ndash; :exclamation: [Ilmottaudu kurssille!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit) :exclamation:
 
 ## Aikataulu
-| maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | vkl        | maanantai  |
-| ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- | ---------- |
-| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo xx:xx  |
-| [ohjaus] 12–16   |                |                |                |                |            | [deadline] |
-| [aihekuvaus]     | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         |            | [demo]     |
+| maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | maanantai  |
+| ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- |
+| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | klo xx:xx  |
+| [ohjaus] 12–16   |                |                |                |                | [deadline] |
+| [aihekuvaus]     | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         | [demo]     |
 
 [ohjaus]: #ohjaus
 [intro]: #ohjaus
