@@ -1,22 +1,20 @@
 | [Ajankohtaista](#ajankohtaista) | [Aikataulu](#aikataulu) | [Materiaali](#materiaali) | [Ilmoittautuminen](#ilmoittautuminen) | [Käytännöt](#k%C3%A4yt%C3%A4nn%C3%B6t) | [Ohjaus](#ohjaus) | [Ideoita](#projekti-ideoita) |
 | ------------------------------- | ----------------------- | ------------------------- | ------------------------------------- | -------------------------------------- | ----------------- | ---------------------------- |
 
-![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 5.5.-12.5. (1-3 op)
+![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 13.10.-20.10. (1-3 op)
 
 
 ## Johdanto
 
-AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä. Googlaa lisää.
+AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web komponentteja odotellessa). Googlaa lisää.
 
 ## Ajankohtaista
-  * *8.5.* &ndash; **demo aikaisuu tunnilla**: aloitamme ma 12.5. jo klo 09.15.
-    * kaikki sovellukset tulee demota koulun koneelta, aikaa 4 minuuttia per softa  
-  * *3.5.* &ndash; Ilmoittautuminen päättyi :heavy_exclamation_mark: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:heavy_exclamation_mark:
+  * *7.10.* &ndash; Ilmottaudu kurssille!
 
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | vkl        | maanantai  |
 | ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- | ---------- |
-| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo 09:15  |
+| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | :sleeping: | klo xx:xx  |
 | [ohjaus] 12–16   |                |                |                |                |            | [deadline] |
 | [aihekuvaus]     | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         |            | [demo]     |
 
@@ -33,17 +31,16 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä. Goo
   * [Angular moduuleja](http://ngmodules.org/) (uudelleenkäytettäviä komponentteja)
 
 ## Ilmoittautuminen
-  * Ilmo sulkeutui 2.5.
   * :heavy_exclamation_mark: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:heavy_exclamation_mark:
   * **Esitiedot**
     * JavaScript – ei tarvitse osata välttämättä ennestään Angularia.
     * Git – projektit tulee Githubiin, se helpottaa tarkistusta ja näyttää hyvältä CV:ssä.
 
 ## Käytännöt
- * Kaikille **pakollinen** demotilaisuus maanantaina 12.5. klo 09:15 luokassa B221, **joka on siis kurssin deadline!**
+ * Kaikille **pakollinen** demotilaisuus maanantaina 20.10. klo XX:XX luokassa XXXX, **joka on siis kurssin deadline!**
  * tuntikirjanpito.md (~20h = 1 op)
    * **Ilman ei tule noppia**
-   * Ryhmässä jokaisella oma kirjanpito
+   * Ryhmässä jokaisella oma kirjanpito ja laittakaa ne siihen repon juureen.
    * Merkataan siis montako tuntia on käytetty minäkin päivänä ja loppuun yhteenveto.
    * Päivittäkää repoa useasti, ei yhtä suurta pushia kurssin lopuksi.
  * 3 op:n töissä on oltava omia servicejä ja direktiivejä. Ilman niitä koodin laatu ei voi olla hyvää.
@@ -54,7 +51,7 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä. Goo
 ## Ohjaus
  * IRC 24h: IRCNet [#tkt-angular](https://kiwiirc.com/client/ircnet.eversible.com/#tkt-angular)
    * Avainhenkilöt: Ville Lahdenvuo ([Tuhis](http://tuhoojabotti.com/)), Matti Luukkainen (mluukkai)
- * Ma-Pe 12 – 16 luokassa B221
+ * Ma-Pe 12 – 16 luokassa XXXX
  * Ennen ekaa kertaa on intro 10:15, joka kestää max 2 tuntia.
  * Kysyttävää? Laita meiliä jollekin avainhenkilöistä. Osoitteet on tietenkin etunimi.sukunimi@helsinki.fi
 
