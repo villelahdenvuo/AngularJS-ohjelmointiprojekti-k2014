@@ -9,7 +9,7 @@
 AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web komponentteja odotellessa). Googlaa lisää.
 
 ## Ajankohtaista
-  * *7.10.* &ndash; Ilmottaudu kurssille!
+  * *7.10.* &ndash; :exclamation: [Ilmottaudu kurssille!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit) :exclamation:
 
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | vkl        | maanantai  |
