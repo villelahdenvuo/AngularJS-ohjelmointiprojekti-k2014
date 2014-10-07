@@ -51,7 +51,7 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
 ## Ohjaus
  * IRC 24h: IRCNet [#tkt-angular](https://kiwiirc.com/client/ircnet.eversible.com/#tkt-angular)
    * Avainhenkilöt: Ville Lahdenvuo ([Tuhis](http://tuhoojabotti.com/)), Matti Luukkainen (mluukkai)
- * Ma-Pe 12 – 16 luokassa XXXX
+ * Ma-Pe 12 – 16 luokassa BK107
  * Ennen ekaa kertaa on intro 10:15, joka kestää max 2 tuntia.
  * Kysyttävää? Laita meiliä jollekin avainhenkilöistä. Osoitteet on tietenkin etunimi.sukunimi@helsinki.fi
 
