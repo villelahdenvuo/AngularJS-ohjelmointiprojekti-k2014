@@ -55,5 +55,5 @@ AngularJS is the ultimate way of doing frontends (while we wait for web componen
  * Mon-Fri 12 – 16 in class BK107
  * Questions? Send email to Ville Lahdenvuo, firstname.lastname@helsinki.fi
 
-## Project-ideas
+## Project ideas
  * You can ask people on IRC...
