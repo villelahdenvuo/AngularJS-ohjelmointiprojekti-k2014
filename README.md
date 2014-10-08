@@ -45,6 +45,7 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
    * Päivittäkää repoa useasti, ei yhtä suurta pushia kurssin lopuksi.
  * 3 op:n töissä on oltava omia servicejä ja direktiivejä. Ilman niitä koodin laatu ei voi olla hyvää.
  * Vaaditut dokumentit
+   * Linkki sovellukseen repositorion kotisivu kenttään ja README:hen.
    * Aihekuvaus – README:ssä alustava selitys projektin ideasta, **palautetaan viimeistään maanantaina**.
    * REAMDE.md – Projektin kuvaus, linkki, ohjeet ynnämuuta
 
