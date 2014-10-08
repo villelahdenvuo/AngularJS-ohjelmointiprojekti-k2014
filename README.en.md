@@ -25,10 +25,10 @@ AngularJS is the ultimate way of doing frontends (while we wait for web componen
 [deadline]: #conventions
 
 ## Material
-  * [Alkuun pääseminen](material/starting.md)
-  * [Hyödyllisiä linkkejä](material/links.md)
-  * [Angularin dokumentaatio](http://devdocs.io/angular/) kivasti selattavana
-  * [Angular moduuleja](http://ngmodules.org/) (uudelleenkäytettäviä komponentteja)
+  * [Getting started](material/starting.md)
+  * [Useful links](material/links.md)
+  * [Angular documentation](http://devdocs.io/angular/) nicely browseable
+  * [Angular modules](http://ngmodules.org/) (reusable components)
 
 ## Registration
   * :exclamation: **[Register your group/project](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)**:exclamation:
