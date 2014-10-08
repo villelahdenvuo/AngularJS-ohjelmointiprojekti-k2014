@@ -1,14 +1,16 @@
+[In English](./README.en.md)
+
 | [Ajankohtaista](#ajankohtaista) | [Aikataulu](#aikataulu) | [Materiaali](#materiaali) | [Ilmoittautuminen](#ilmoittautuminen) | [Käytännöt](#k%C3%A4yt%C3%A4nn%C3%B6t) | [Ohjaus](#ohjaus) |
 | ------------------------------- | ----------------------- | ------------------------- | ------------------------------------- | -------------------------------------- | ----------------- |
 
 ![](http://angularjs.org/img/AngularJS-large.png) **ohjelmointiprojekti** 13.10.-20.10. (1-3 op)
-
 
 ## Johdanto
 
 AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web komponentteja odotellessa). Googlaa lisää.
 
 ## Ajankohtaista
+  * *8.10.* &ndash; [English course page](./README.en.md)
   * *7.10.* &ndash; :exclamation: [Ilmottaudu kurssille!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit) :exclamation:
 
 ## Aikataulu
