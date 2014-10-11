@@ -9,6 +9,7 @@
 AngularJS is the ultimate way of doing frontends (while we wait for web components). Google for more.
 
 ## News
+  * *11.10.* &ndash; :exclamation: **[Register your group/project](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)** :exclamation:
   * *7.10.* &ndash; :exclamation: [Register!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=E&toiminta=Luentokurssit) :exclamation:
 
 ## Schedule
