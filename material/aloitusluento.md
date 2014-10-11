@@ -993,8 +993,6 @@ saisi kontrollerin rekisteröimä callback parametriksi Auth-palvelun palvelimel
 
 Auth-pavelun metodi *login* toimii yllätyksettömästi. Ensin pyydetään palvelinta tuhoamaan HTTP DELETE -kutsuun liittyvä token, poistaan tokenin sisältämä headeri ja muutetaan kirjautumisstatus.
 
-# allaoleva valmistuu ehkä tiistaina, varmuudella keskiviikko-iltaan mennessä
-
 ## interceptorit 
 
 Tällä hetkellä sovellus ei tee mitään jos kirjautumattomana yritetään tuhota blogi. Luonnollinen korjaus tähän olisi pilottaa tuhomaisnappi jos käyttäjä ei ole kirjautuneena:
