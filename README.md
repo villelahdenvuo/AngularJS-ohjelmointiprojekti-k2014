@@ -10,6 +10,7 @@
 AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web komponentteja odotellessa). Googlaa lisää.
 
 ## Ajankohtaista
+  * *11.10.* &ndash; :exclamation: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)** :exclamation:
   * *8.10.* &ndash; [English course page](./README.en.md)
   * *7.10.* &ndash; :exclamation: [Ilmottaudu kurssille!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit) :exclamation:
 
