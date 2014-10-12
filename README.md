@@ -29,6 +29,7 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
 
 ## Materiaali
   * [Alkuun pääseminen](material/starting.md)
+  * **[Style Guide](https://github.com/gocardless/angularjs-style-guide)** ja antipatterneja
   * [Hyödyllisiä linkkejä](material/links.md)
   * [Angularin dokumentaatio](http://devdocs.io/angular/) kivasti selattavana
   * [Angular moduuleja](http://ngmodules.org/) (uudelleenkäytettäviä komponentteja)
