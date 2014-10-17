@@ -10,9 +10,12 @@
 AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web komponentteja odotellessa). Googlaa lisää.
 
 ## Ajankohtaista
-  * *11.10.* &ndash; :exclamation: **[Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)** :exclamation:
+  * *16.10.* &ndash; Demotilaisuus ja kurssin deadline maanantaina (20.10.) klo 10 yläpajassa (B221)
+    * Jos ajankohta ei sovi, niin laita meiliä Ville Lahdenvuolle helsinki.fi-osoitteeseen.
+    * Pitäkää huolta, että projekti on deployattuna jonnekin, että sitä voi demota millä tahansa koneella.
+  * *11.10.* &ndash; [Rekisteröikää ryhmänne/projektinne](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)
   * *8.10.* &ndash; [English course page](./README.en.md)
-  * *7.10.* &ndash; :exclamation: [Ilmottaudu kurssille!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit) :exclamation:
+  * *7.10.* &ndash; [Ilmottaudu kurssille!](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=S&toiminta=Luentokurssit)
 
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | maanantai  |
@@ -41,7 +44,7 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
     * Git – projektit tulee Githubiin, se helpottaa tarkistusta ja näyttää hyvältä CV:ssä.
 
 ## Käytännöt
- * Kaikille **pakollinen** demotilaisuus maanantaina 20.10. klo XX:XX luokassa XXXX, **joka on siis kurssin deadline!**
+ * Kaikille **pakollinen** demotilaisuus maanantaina 20.10. klo 10:15 luokassa B221, **joka on siis kurssin deadline!**
  * tuntikirjanpito.md (~20h = 1 op)
    * **Ilman ei tule noppia**
    * Ryhmässä jokaisella oma kirjanpito ja laittakaa ne siihen repon juureen.
@@ -49,8 +52,8 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
    * Päivittäkää repoa useasti, ei yhtä suurta pushia kurssin lopuksi.
  * 3 op:n töissä on oltava omia servicejä ja direktiivejä. Ilman niitä koodin laatu ei voi olla hyvää.
  * Vaaditut dokumentit
-   * Linkki sovellukseen repositorion kotisivu kenttään ja README:hen.
-   * Aihekuvaus – README:ssä alustava selitys projektin ideasta, **palautetaan viimeistään maanantaina**.
+   * Linkki sovellukseen repositorion kotisivukenttään ja README:hen.
+   * Aihekuvaus – README:ssä alustava selitys projektin ideasta
    * REAMDE.md – Projektin kuvaus, linkki, ohjeet ynnämuuta
 
 ## Ohjaus
