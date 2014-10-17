@@ -18,7 +18,7 @@ AngularJS is the ultimate way of doing frontends (while we wait for web componen
 ## Schedule
 | Monday           | Tuesday        | Wednesday      | Thursday       | Friday         | Monday     |
 | ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- |
-| [intro] 10:15    | [guidance] 12–16 | [guidance] 12–16 | [guidance] 12–16 | [guidance] 12–16 | klo xx:xx  |
+| [intro] 10:15    | [guidance] 12–16 | [guidance] 12–16 | [guidance] 12–16 | [guidance] 12–16 | klo 10:15  |
 | [guidance] 12–16 |                |                |                |                | [deadline] |
 | [project idea]   | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         | [demo]     |
 
