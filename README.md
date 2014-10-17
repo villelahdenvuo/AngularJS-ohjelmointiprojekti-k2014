@@ -20,7 +20,7 @@ AngularJS on tämän hetken ylivoimaisesti coolein tapa tehdä frontendejä (web
 ## Aikataulu
 | maanantai        | tiistai        | keskiviikko    | torstai        | perjantai      | maanantai  |
 | ---------------- | -------------- | -------------- | -------------- | -------------- | ---------- |
-| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | klo xx:xx  |
+| [intro] 10:15    | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | [ohjaus] 12–16 | klo 10:15  |
 | [ohjaus] 12–16   |                |                |                |                | [deadline] |
 | [aihekuvaus]     | :sweat:        | :sweat:        | :cold_sweat:   | :beer:         | [demo]     |
 
