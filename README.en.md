@@ -9,8 +9,11 @@
 AngularJS is the ultimate way of doing frontends (while we wait for web components). Google for more.
 
 ## News
-  * *11.10.* &ndash; :exclamation: **[Register your group/project](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)** :exclamation:
-  * *7.10.* &ndash; :exclamation: [Register to the course ](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=E&toiminta=Luentokurssit) :exclamation:
+  * *16.10.* &ndash; Demo and course deadline is on Monday (20.10.) at 10 in B221
+    * If you can't make it, send email to Ville Lahdenvuo to helsinki.fi address.
+    * Make sure your project is deployed somewhere so you can demo it on any machine.
+  * *11.10.* &ndash; [Register your group/project](https://github.com/tuhoojabotti/AngularJS-ohjelmointiprojekti-k2014/wiki/Ryhm%C3%A4t)
+  * *7.10.* &ndash; [Register to the course ](https://ilmo.cs.helsinki.fi/ilmo/Yk?kk=582381&lk=S&lv=2014&tp=K&knro=1&kieli=E&toiminta=Luentokurssit)
 
 ## Schedule
 | Monday           | Tuesday        | Wednesday      | Thursday       | Friday         | Monday     |
@@ -38,7 +41,7 @@ AngularJS is the ultimate way of doing frontends (while we wait for web componen
     * Git – projects will be on Github, it makes checking easier and looks good on the CV.
 
 ## Conventions
- * **Mandatory** demo on Monday 20.10. at XX:XX in class BK107 **this is the deadline of the course!**
+ * **Mandatory** demo on Monday 20.10. at 10:15 in class B221 **this is the deadline of the course!**
  * bookkeeping.md (~20h = 1 cr)
    * **No credits without bookkeeping**
    * In a group everyone has their own bookkeeping, put them in the root of the repository.
@@ -47,7 +50,7 @@ AngularJS is the ultimate way of doing frontends (while we wait for web componen
  * A 3-credit-project must have custom services and directives, without them the quality of the code can't be good. 
  * Required documentation
    * Put a link to your app to the repository homepage box and to the README.
-   * Project idea – Short description of your project in the README.md file - **Return by Monday 13.10.!**
+   * Project idea – Short description of your project in the README.md file
    * REAMDE.md – Should also contain instructions on how to run/use your app.
 
 ## Guidance
